@@ -1123,8 +1123,9 @@ strong {
 
 /* Page Header */
 .page-header {
-    max-width: 72rem;
+    width: 100%;
     margin: 0 auto var(--space-3xl);
+    padding: 0 var(--space-2xl);
 }
 
 .breadcrumb {
@@ -1241,15 +1242,22 @@ strong {
 
 /* Archetype Grid */
 .archetypes-container {
-    max-width: 72rem;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 var(--space-2xl);
+}
+
+/* Override content-wrapper max-width for archetype pages */
+.archetypes-container .content-wrapper {
+    max-width: none;
 }
 
 .archetype-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
+    gap: var(--space-2xl);
     margin-bottom: var(--space-3xl);
+    max-width: 100%;
 }
 
 /* Loading and Error States */
@@ -1411,15 +1419,11 @@ strong {
 
 /* Framework Section */
 .framework-section {
-    max-width: 72rem;
+    width: 100%;
     margin: 0 auto;
-    padding: var(--space-3xl) 0;
+    padding: var(--space-3xl) var(--space-2xl);
     background: white;
     border-radius: var(--border-radius-lg);
-}
-
-.framework-section .content-wrapper {
-    padding: 0 var(--space-lg);
 }
 
 .section-intro {
@@ -1832,9 +1836,24 @@ strong {
 }
 
 /* === Responsive Adjustments for Archetype Pages === */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .archetype-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+    }
+
+    .archetypes-container,
+    .page-header,
+    .framework-section {
+        padding: 0 var(--space-xl);
+    }
+}
+
+@media (max-width: 900px) {
+    .archetypes-container,
+    .page-header,
+    .framework-section {
+        padding: 0 var(--space-lg);
     }
 }
 

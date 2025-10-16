@@ -1247,7 +1247,7 @@ strong {
 
 .archetype-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
     margin-bottom: var(--space-3xl);
 }
@@ -1832,6 +1832,12 @@ strong {
 }
 
 /* === Responsive Adjustments for Archetype Pages === */
+@media (max-width: 1024px) {
+    .archetype-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .page-title {
         font-size: var(--text-3xl);

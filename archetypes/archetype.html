@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deep dive into a collapse archetype - traits, dimensional profile, theoretical foundations, and archetypal resonance.">
+    <title id="pageTitle">Archetype Detail | Collapse Archetypes</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="../src/phosphor-icons/phosphor-icons.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="archetype-detail-page" role="main">
+        <!-- Loading State -->
+        <div class="loading-screen" id="loadingScreen">
+            <i class="ph ph-circle-notch loading-spinner"></i>
+            <p>Loading archetype...</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="error-screen hidden" id="errorScreen">
+            <i class="ph ph-warning-circle"></i>
+            <h1>Archetype Not Found</h1>
+            <p>The archetype you're looking for doesn't exist or couldn't be loaded.</p>
+            <a href="../archetypes.html" class="btn btn-primary">
+                <i class="ph ph-arrow-left"></i>
+                View All Archetypes
+            </a>
+        </div>
+
+        <!-- Content (populated by JavaScript) -->
+        <div class="archetype-content hidden" id="archetypeContent">
+            <!-- Navigation -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html" class="breadcrumb-link">
+                    <i class="ph ph-house"></i>
+                    Home
+                </a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="../archetypes.html" class="breadcrumb-link">Archetypes</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current" id="breadcrumbName">...</span>
+            </nav>
+
+            <!-- Archetype Header -->
+            <header class="archetype-header">
+                <div class="archetype-header-content">
+                    <h1 class="archetype-title" id="archetypeName">...</h1>
+                    <blockquote class="archetype-meme-large" id="archetypeMeme">...</blockquote>
+                </div>
+            </header>
+
+            <!-- Main Content Grid -->
+            <div class="archetype-detail-grid">
+                <!-- Description Section -->
+                <section class="archetype-section description-section">
+                    <div id="archetypeDescription"></div>
+                    <div id="archetypeExtendedDescription"></div>
+                </section>
+
+                <!-- Traits Section -->
+                <aside class="archetype-section traits-section">
+                    <h2 class="section-heading">
+                        <i class="ph ph-fingerprint"></i>
+                        Core Traits
+                    </h2>
+                    <div class="trait-profile" id="traitProfile">
+                        <!-- Populated by JS -->
+                    </div>
+                </aside>
+
+                <!-- Dimensional Profile Section -->
+                <section class="archetype-section dimensional-section">
+                    <h2 class="section-heading">
+                        <i class="ph ph-chart-polar"></i>
+                        Dimensional Profile
+                    </h2>
+                    <p class="section-intro">
+                        This archetype's position across the five theoretical dimensions that shape
+                        collapse awareness and response.
+                    </p>
+
+                    <!-- Radar Chart -->
+                    <div class="radar-chart-container">
+                        <svg class="radar-chart" id="radarChart" viewBox="-120 -120 240 240"
+                             aria-labelledby="radarChartTitle radarChartDesc">
+                            <title id="radarChartTitle">Five-dimensional psychological profile</title>
+                            <desc id="radarChartDesc">A radar chart showing scores across five theoretical dimensions</desc>
+
+                            <!-- Background concentric circles -->
+                            <g class="radar-grid" aria-hidden="true">
+                                <circle cx="0" cy="0" r="100" class="grid-circle"/>
+                                <circle cx="0" cy="0" r="75" class="grid-circle"/>
+                                <circle cx="0" cy="0" r="50" class="grid-circle"/>
+                                <circle cx="0" cy="0" r="25" class="grid-circle"/>
+                            </g>
+
+                            <!-- Axis lines -->
+                            <g class="radar-axes" id="radarAxes" aria-hidden="true"></g>
+
+                            <!-- Axis labels -->
+                            <g class="radar-labels" id="radarLabels"></g>
+
+                            <!-- Data polygon -->
+                            <g class="radar-data">
+                                <polygon id="radarPolygon" class="data-polygon" points="" />
+                                <g id="radarPoints" class="data-points"></g>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Dimension Details -->
+                    <div class="dimension-details" id="dimensionDetails">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+
+                <!-- Theoretical Foundations Section -->
+                <section class="archetype-section theory-section">
+                    <h2 class="section-heading">
+                        <i class="ph ph-book-open"></i>
+                        Theoretical Foundations
+                    </h2>
+                    <p class="section-intro">
+                        This archetype draws from the following psychological and sociological frameworks:
+                    </p>
+                    <ul class="theory-list" id="theoryList">
+                        <!-- Populated by JS -->
+                    </ul>
+                </section>
+
+                <!-- Navigation Section -->
+                <nav class="archetype-navigation" aria-label="Archetype navigation">
+                    <div class="nav-buttons">
+                        <button class="nav-btn nav-prev" id="prevArchetype" aria-label="Previous archetype">
+                            <i class="ph ph-arrow-left"></i>
+                            <span class="nav-text">
+                                <span class="nav-label">Previous</span>
+                                <span class="nav-name" id="prevArchetypeName">...</span>
+                            </span>
+                        </button>
+
+                        <a href="../archetypes.html" class="nav-btn nav-grid" aria-label="View all archetypes">
+                            <i class="ph ph-grid-four"></i>
+                            <span class="nav-text">All Archetypes</span>
+                        </a>
+
+                        <button class="nav-btn nav-next" id="nextArchetype" aria-label="Next archetype">
+                            <span class="nav-text">
+                                <span class="nav-label">Next</span>
+                                <span class="nav-name" id="nextArchetypeName">...</span>
+                            </span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </nav>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="cta-box-large">
+                        <h2>Discover Your Archetype</h2>
+                        <p>
+                            Take the theory-grounded quiz to explore which archetypal pattern resonates
+                            most deeply with your awareness, agency, and response to uncertainty.
+                        </p>
+                        <a href="../index.html" class="btn btn-primary btn-large">
+                            Take the Quiz
+                            <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <p>
+            An exploration of human patterns in times of transformation and civilizational composting.
+            Created by <a href="https://m3data.me">m3metix</a> with Claude Code for entertainment and
+            self-reflection purposes only. This is not a clinical or diagnostic tool.
+        </p>
+        <p>
+            <a href="../privacy.html">Privacy Notice</a>
+        </p>
+    </footer>
+
+    <!-- Script -->
+    <script src="archetype.js" type="module"></script>
+</body>
+</html>

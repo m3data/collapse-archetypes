@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore all 19 collapse archetypes - distinct patterns of awareness, agency, and response to uncertainty and systemic change.">
+    <title>Explore Collapse Archetypes | Theory-Grounded Patterns of Response</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/phosphor-icons/phosphor-icons.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="archetypes-page" role="main">
+        <div class="page-header">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html" class="breadcrumb-link">
+                    <i class="ph ph-house"></i>
+                    Home
+                </a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Archetypes</span>
+            </nav>
+
+            <div class="header-content">
+                <h1 class="page-title">The 19 Collapse Archetypes</h1>
+                <p class="page-subtitle">
+                    Patterns of awareness, agency, and response in times of unraveling
+                </p>
+
+                <div class="archetype-intro">
+                    <p>
+                        How we perceive, feel, and act in times of systemic transformation reveals deep archetypal
+                        patterns within us. These 19 archetypes are not rigid categories but rather constellations
+                        of tendencies—ways of being that emerge from the intersection of awareness, emotion, social
+                        orientation, time perspective, and capacity for action.
+                    </p>
+                    <p>
+                        Each archetype draws from psychological and sociological theory: Terror Management Theory,
+                        Cognitive Dissonance, Social Identity Theory, and frameworks for understanding how humans
+                        navigate uncertainty. They reflect real patterns observed in how people relate to collapse—whether
+                        personal, communal, ecological, or civilizational.
+                    </p>
+
+                    <div class="disclaimer-box">
+                        <div class="disclaimer-header">
+                            <i class="ph ph-warning-circle"></i>
+                            <h2>Important Context</h2>
+                        </div>
+                        <p>
+                            These archetypes are <strong>conceptual frameworks</strong>, not scientific personality
+                            categories or diagnostic labels. They are tools for self-reflection and understanding,
+                            grounded in theory but intended to illuminate rather than define. You may recognize yourself
+                            in multiple archetypes, or find yourself shifting between them across different contexts
+                            and life phases.
+                        </p>
+                    </div>
+
+                    <div class="cta-box">
+                        <p>Want to discover your archetype?</p>
+                        <a href="index.html" class="btn btn-primary">
+                            Take the Quiz
+                            <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="archetypes-container">
+            <div class="content-wrapper">
+                <!-- Archetype Grid (populated by JavaScript) -->
+                <div class="archetype-grid" id="archetypeGrid" role="list">
+                    <!-- Loading state -->
+                    <div class="loading-state">
+                        <i class="ph ph-circle-notch loading-spinner"></i>
+                        <p>Loading archetypes...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dimensional Framework Section -->
+        <div class="framework-section">
+            <div class="content-wrapper">
+                <h2 class="section-title">The Five Dimensions</h2>
+                <p class="section-intro">
+                    Each archetype exists within a five-dimensional space that captures fundamental aspects
+                    of how humans respond to systemic uncertainty and change.
+                </p>
+
+                <div class="dimension-overview-grid">
+                    <div class="dimension-overview-card">
+                        <div class="dimension-icon">
+                            <i class="ph ph-heart"></i>
+                        </div>
+                        <h3>Affective</h3>
+                        <p>
+                            Your emotional tone when facing collapse realities—ranging from anxiety and fear
+                            to hope and equanimity.
+                        </p>
+                        <span class="dimension-theory">Terror Management Theory, Positive Psychology</span>
+                    </div>
+
+                    <div class="dimension-overview-card">
+                        <div class="dimension-icon">
+                            <i class="ph ph-eye"></i>
+                        </div>
+                        <h3>Cognitive</h3>
+                        <p>
+                            How clearly you recognize and acknowledge collapse dynamics—from denial and
+                            minimization to full awareness.
+                        </p>
+                        <span class="dimension-theory">Cognitive Dissonance, System Justification Theory</span>
+                    </div>
+
+                    <div class="dimension-overview-card">
+                        <div class="dimension-icon">
+                            <i class="ph ph-users-three"></i>
+                        </div>
+                        <h3>Relational</h3>
+                        <p>
+                            Whether you orient primarily as an individual or within collective identity—your
+                            sense of group belonging and social bonds.
+                        </p>
+                        <span class="dimension-theory">Social Identity Theory, Cultural Theory of Risk</span>
+                    </div>
+
+                    <div class="dimension-overview-card">
+                        <div class="dimension-icon">
+                            <i class="ph ph-clock-clockwise"></i>
+                        </div>
+                        <h3>Temporal</h3>
+                        <p>
+                            Your relationship to past, present, and future—which timeframe most shapes
+                            your responses and worldview.
+                        </p>
+                        <span class="dimension-theory">Adaptive Cycle Theory, Panarchy</span>
+                    </div>
+
+                    <div class="dimension-overview-card">
+                        <div class="dimension-icon">
+                            <i class="ph ph-hand-fist"></i>
+                        </div>
+                        <h3>Behavioral</h3>
+                        <p>
+                            Your sense of capacity to act and your preferred coping strategies—from passive
+                            acceptance to active preparation.
+                        </p>
+                        <span class="dimension-theory">Self-Efficacy Theory, Behavioral Adaptation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <p>
+            An exploration of human patterns in times of transformation and civilizational composting.
+            Created by <a href="https://m3data.me">m3metix</a> with Claude Code for entertainment and
+            self-reflection purposes only. This is not a clinical or diagnostic tool.
+        </p>
+        <p>
+            <a href="privacy.html">Privacy Notice</a>
+        </p>
+    </footer>
+
+    <!-- Script -->
+    <script type="module">
+        // Load archetypes from quiz data
+        async function loadArchetypes() {
+            try {
+                const response = await fetch('src/data/quiz-data.json');
+                const data = await response.json();
+                renderArchetypeGrid(data.archetypes);
+            } catch (error) {
+                console.error('Error loading archetypes:', error);
+                showError();
+            }
+        }
+
+        function renderArchetypeGrid(archetypes) {
+            const grid = document.getElementById('archetypeGrid');
+
+            grid.innerHTML = archetypes.map(archetype => `
+                <article class="archetype-card" role="listitem">
+                    <a href="archetypes/archetype.html?id=${archetype.id}" class="archetype-card-link">
+                        <div class="archetype-card-header">
+                            <h3 class="archetype-card-name">${archetype.name}</h3>
+                            <div class="archetype-traits-mini">
+                                <span class="trait-badge trait-awareness-${archetype.traits.awareness.toLowerCase()}">
+                                    ${archetype.traits.awareness}
+                                </span>
+                                <span class="trait-badge trait-affect-${archetype.traits.affect.toLowerCase()}">
+                                    ${archetype.traits.affect}
+                                </span>
+                                <span class="trait-badge trait-agency-${archetype.traits.agency.toLowerCase()}">
+                                    ${archetype.traits.agency}
+                                </span>
+                            </div>
+                        </div>
+
+                        <blockquote class="archetype-card-meme">
+                            "${archetype.meme}"
+                        </blockquote>
+
+                        <p class="archetype-card-description">
+                            ${archetype.description}
+                        </p>
+
+                        <div class="archetype-card-footer">
+                            <span class="read-more">
+                                Explore this archetype
+                                <i class="ph ph-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+            `).join('');
+        }
+
+        function showError() {
+            const grid = document.getElementById('archetypeGrid');
+            grid.innerHTML = `
+                <div class="error-state">
+                    <i class="ph ph-warning-circle"></i>
+                    <p>Unable to load archetypes. Please try refreshing the page.</p>
+                </div>
+            `;
+        }
+
+        // Load on page ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadArchetypes);
+        } else {
+            loadArchetypes();
+        }
+    </script>
+</body>
+</html>

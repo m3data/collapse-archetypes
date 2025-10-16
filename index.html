@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover your collapse archetype through an introspective journey into patterns of awareness, agency, and response.">
+    <title>Collapse Archetype Quiz | Discover Your Pattern</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/phosphor-icons/phosphor-icons.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="quiz-container" id="quizContainer" role="main">
+
+        <!-- Welcome Screen -->
+        <section class="screen welcome-screen active" id="welcomeScreen" aria-labelledby="welcomeTitle">
+            <div class="content-wrapper">
+                <div class="archetypal-symbol" aria-hidden="true">
+                    <svg width="120" height="120" viewBox="0 0 120 120" class="symbol-svg">
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                        <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                        <circle cx="60" cy="60" r="5" fill="currentColor"/>
+                        <line x1="60" y1="10" x2="60" y2="30" stroke="currentColor" stroke-width="2"/>
+                        <line x1="60" y1="90" x2="60" y2="110" stroke="currentColor" stroke-width="2"/>
+                        <line x1="10" y1="60" x2="30" y2="60" stroke="currentColor" stroke-width="2"/>
+                        <line x1="90" y1="60" x2="110" y2="60" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <h1 class="welcome-title" id="welcomeTitle">
+                    Collapse Archetype Quiz
+                </h1>
+
+                <p class="welcome-subtitle">
+                    A journey into patterns of awareness, agency, and response
+                </p>
+
+                <div class="welcome-description">
+                    <p>
+                        We stand at thresholds. How we perceive, feel, and act in times of unraveling
+                        reveals deep archetypal patterns within us.
+                    </p>
+                    <p>
+                        This quiz explores your relationship to uncertainty, change, and collapse—not
+                        to label, but to illuminate the pattern you embody.
+                    </p>
+                    <p class="welcome-meta">
+                        <span><i class="ph ph-users-three"></i> <strong>19 archetypes</strong></span> ·
+                        <span><i class="ph ph-question"></i> <strong>20 questions</strong></span> ·
+                        <span><i class="ph ph-clock"></i> <strong>8 minutes</strong></span>
+                    </p>
+                </div>
+
+                <button
+                    class="btn btn-primary start-btn"
+                    id="startBtn"
+                    aria-label="Begin the archetype quiz">
+                    Begin the Journey
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section class="screen quiz-screen" id="quizScreen" aria-labelledby="questionText">
+            <div class="content-wrapper">
+                <!-- Progress Indicator -->
+                <div class="progress-container" role="region" aria-label="Quiz progress">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+                    </div>
+                    <p class="progress-text" id="progressText" aria-live="polite">
+                        Question <span class="current-question">1</span> of <span class="total-questions">12</span>
+                    </p>
+                </div>
+
+                <!-- Question Display -->
+                <div class="question-container">
+                    <h2 class="question-text" id="questionText">
+                        <!-- Question text populated by JS -->
+                    </h2>
+                </div>
+
+                <!-- Answer Options -->
+                <div class="answers-container" id="answersContainer" role="radiogroup" aria-labelledby="questionText">
+                    <!-- Answer buttons populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section class="screen results-screen" id="resultsScreen" aria-labelledby="archetypeName">
+            <div class="content-wrapper">
+                <div class="results-reveal">
+                    <p class="results-label">Your archetype is</p>
+
+                    <h1 class="archetype-name" id="archetypeName">
+                        <!-- Archetype name populated by JS -->
+                    </h1>
+
+                    <div class="archetype-image-container" aria-hidden="true">
+                        <div class="archetype-image" id="archetypeImage">
+                            <!-- Image or visual representation -->
+                        </div>
+                    </div>
+
+                    <blockquote class="archetype-meme" id="archetypeMeme">
+                        <!-- Meme caption populated by JS -->
+                    </blockquote>
+
+                    <div class="archetype-description" id="archetypeDescription">
+                        <!-- Description populated by JS -->
+                    </div>
+
+                    <div class="archetype-traits" id="archetypeTraits">
+                        <!-- Traits populated by JS -->
+                    </div>
+
+                    <!-- Dimensional Analysis Section -->
+                    <div class="dimensional-analysis" id="dimensionalAnalysis">
+                        <h2 class="section-title">Your Dimensional Profile</h2>
+                        <p class="section-subtitle">
+                            Understanding the psychological and sociological patterns beneath your archetype
+                        </p>
+
+                        <!-- Radar Chart Container -->
+                        <div class="radar-chart-container">
+                            <svg class="radar-chart" id="radarChart" viewBox="-120 -120 240 240" aria-labelledby="radarChartTitle radarChartDesc">
+                                <title id="radarChartTitle">Five-dimensional psychological profile</title>
+                                <desc id="radarChartDesc">A radar chart showing your scores across five theoretical dimensions</desc>
+
+                                <!-- Background concentric circles -->
+                                <g class="radar-grid" aria-hidden="true">
+                                    <circle cx="0" cy="0" r="100" class="grid-circle"/>
+                                    <circle cx="0" cy="0" r="75" class="grid-circle"/>
+                                    <circle cx="0" cy="0" r="50" class="grid-circle"/>
+                                    <circle cx="0" cy="0" r="25" class="grid-circle"/>
+                                </g>
+
+                                <!-- Axis lines (will be populated by JS) -->
+                                <g class="radar-axes" id="radarAxes" aria-hidden="true">
+                                </g>
+
+                                <!-- Axis labels (will be populated by JS) -->
+                                <g class="radar-labels" id="radarLabels">
+                                </g>
+
+                                <!-- User's data polygon (will be populated by JS) -->
+                                <g class="radar-data">
+                                    <polygon id="radarPolygon" class="data-polygon" points="" />
+                                    <g id="radarPoints" class="data-points"></g>
+                                </g>
+                            </svg>
+
+                            <!-- Chart Legend -->
+                            <div class="radar-legend" id="radarLegend">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Dimension Explanations -->
+                        <div class="dimension-cards" id="dimensionCards">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <!-- Theory Connection -->
+                        <details class="theory-details">
+                            <summary class="theory-summary">
+                                <i class="ph ph-book-open"></i>
+                                <span>Understanding the Theoretical Framework</span>
+                                <i class="ph ph-caret-down summary-icon"></i>
+                            </summary>
+                            <div class="theory-content" id="theoryContent">
+                                <p class="theory-intro">
+                                    Your archetype emerges from five fundamental dimensions that shape
+                                    how humans respond to systemic change and uncertainty:
+                                </p>
+
+                                <div class="theory-dimension">
+                                    <h3>Affective Dimension</h3>
+                                    <p>
+                                        <strong>Emotional Response:</strong> Your emotional tone when facing collapse
+                                        realities—ranging from anxiety and fear to hope and equanimity. Grounded in
+                                        Terror Management Theory and Positive Psychology.
+                                    </p>
+                                </div>
+
+                                <div class="theory-dimension">
+                                    <h3>Cognitive Dimension</h3>
+                                    <p>
+                                        <strong>Awareness Level:</strong> How clearly you recognize and acknowledge
+                                        collapse dynamics—from denial and minimization to full awareness. Informed by
+                                        Cognitive Dissonance and System Justification Theory.
+                                    </p>
+                                </div>
+
+                                <div class="theory-dimension">
+                                    <h3>Relational Dimension</h3>
+                                    <p>
+                                        <strong>Social Context:</strong> Whether you orient primarily as an individual
+                                        or within collective identity—your sense of group belonging and social bonds.
+                                        Drawing on Social Identity Theory and Cultural Theory of Risk.
+                                    </p>
+                                </div>
+
+                                <div class="theory-dimension">
+                                    <h3>Temporal Dimension</h3>
+                                    <p>
+                                        <strong>Time Orientation:</strong> Your relationship to past, present, and
+                                        future—what time frame most shapes your responses. Informed by Holling's
+                                        Adaptive Cycle and Panarchy frameworks.
+                                    </p>
+                                </div>
+
+                                <div class="theory-dimension">
+                                    <h3>Behavioral Dimension</h3>
+                                    <p>
+                                        <strong>Agency & Coping:</strong> Your sense of capacity to act and your
+                                        preferred coping strategies—from passive acceptance to active preparation.
+                                        Grounded in Self-Efficacy Theory and Behavioral Adaptation research.
+                                    </p>
+                                </div>
+
+                                <p class="theory-footer">
+                                    These dimensions work together to create your unique archetypal pattern,
+                                    reflecting deep psychological, sociological, and ecological processes.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="results-actions">
+                        <button
+                            class="btn btn-secondary retake-btn"
+                            id="retakeBtn"
+                            aria-label="Retake the archetype quiz">
+                            <i class="ph ph-arrow-counter-clockwise"></i>
+                            Journey Again
+                        </button>
+                        <button
+                            class="btn btn-outline share-btn"
+                            id="shareBtn"
+                            aria-label="Share your archetype result">
+                            <i class="ph ph-share-network"></i>
+                            Share Result
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <p>
+            An exploration of human patterns in times of transformation and civilizational composting. Created by <a href="https://m3data.me">m3metix</a> with Claude Code for entertainment and self-reflection purposes only.
+            This is not a clinical or diagnostic tool.
+        </p>
+        <p>
+            <a href="privacy.html">Privacy Notice</a>
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="src/js/app.js" type="module"></script>
+</body>
+</html>

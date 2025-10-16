@@ -1,0 +1,53 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Claude Code Internal Files
+.claude/
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+.classpath
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies (if added later)
+node_modules/
+bower_components/
+
+# Build/Distribution (if added later)
+dist/
+build/
+*.zip
+*.tar.gz
+
+# Temporary Files
+*.tmp
+*.temp
+.cache/
+
+# AI Assistant Working Folders
+claude-dev/

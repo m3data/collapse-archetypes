@@ -1,0 +1,2285 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "description": "Theory-grounded collapse archetype assessment",
+    "dimensions": [
+      {
+        "id": "affective",
+        "name": "Affective Dimension",
+        "description": "Emotional tone and affective responses to collapse awareness (anxiety, hope, denial, anger)",
+        "theoreticalBasis": "Terror Management Theory, Emotional Regulation, Affect Theory"
+      },
+      {
+        "id": "cognitive",
+        "name": "Cognitive Dimension",
+        "description": "Awareness, beliefs, and mental models about collapse reality",
+        "theoreticalBasis": "Cognitive Dissonance Theory, System Justification, Motivated Reasoning, Risk Perception"
+      },
+      {
+        "id": "relational",
+        "name": "Relational Dimension",
+        "description": "Social identity, group affiliations, and worldview commitments",
+        "theoreticalBasis": "Social Identity Theory, Moral Foundations Theory, Cultural Theory of Risk, Collective Identity"
+      },
+      {
+        "id": "temporal",
+        "name": "Temporal Dimension",
+        "description": "Time orientation and future expectations (past/present/future focus)",
+        "theoreticalBasis": "Temporal Psychology, Adaptive Cycle Theory, Eschatology, Future Time Perspective"
+      },
+      {
+        "id": "behavioral",
+        "name": "Behavioral Dimension",
+        "description": "Agency, coping strategies, and preparedness actions",
+        "theoreticalBasis": "Self-Efficacy Theory, Coping Theory, Behavioral Adaptation, Agency Theory"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": "When confronted with evidence of systemic instability (climate data, economic indicators, social unrest), what is your most honest first reaction?",
+      "dimension": "cognitive",
+      "theoreticalFocus": "Cognitive Dissonance, System Justification, Denial mechanisms",
+      "answers": [
+        {
+          "id": "q1a1",
+          "text": "I question the data's reliability or find reasons why it's exaggerated",
+          "theoreticalBasis": "System Justification Theory - motivated reasoning to defend existing systems",
+          "dimensionScores": {
+            "cognitive": -2,
+            "affective": 1,
+            "behavioral": -1
+          },
+          "archetypeScores": {
+            "ostrich": 3,
+            "normalizer": 2,
+            "illusionist": 1
+          }
+        },
+        {
+          "id": "q1a2",
+          "text": "I feel a surge of anxiety and urgency to understand the full scope",
+          "theoreticalBasis": "Terror Management Theory - mortality salience triggers anxiety and threat detection",
+          "dimensionScores": {
+            "cognitive": 2,
+            "affective": -2,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "prophet-of-doom": 3,
+            "prepper": 2,
+            "already-collapsed": 1
+          }
+        },
+        {
+          "id": "q1a3",
+          "text": "I acknowledge it calmly as part of natural cycles and impermanence",
+          "theoreticalBasis": "Spiritual Bypass, Mindfulness Theory - transcendence of material threats",
+          "dimensionScores": {
+            "cognitive": 1,
+            "affective": 2,
+            "temporal": 0
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 3,
+            "sacred-keeper": 1
+          }
+        },
+        {
+          "id": "q1a4",
+          "text": "I see it as confirmation that the system is ready to be dismantled and rebuilt",
+          "theoreticalBasis": "Critical Theory, Post-Traumatic Growth - crisis as catalyst for transformation",
+          "dimensionScores": {
+            "cognitive": 2,
+            "affective": 1,
+            "behavioral": 2
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "apocaloptimist": 2,
+            "opportunist-elite": 1
+          }
+        },
+        {
+          "id": "q1a5",
+          "text": "I look for the hidden patterns or orchestrated causes behind the instability",
+          "theoreticalBasis": "Motivated Reasoning, Pattern Recognition, Conspiracy Theory Formation",
+          "dimensionScores": {
+            "cognitive": 1,
+            "affective": -1,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "conspiracy-theorist": 3,
+            "illusionist": 2,
+            "prophet-of-doom": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "How do you experience mortality or existential threat when considering collapse scenarios?",
+      "dimension": "affective",
+      "theoreticalFocus": "Terror Management Theory, Existential Psychology, Death Anxiety",
+      "answers": [
+        {
+          "id": "q2a1",
+          "text": "I deflect or avoid these thoughts - they're too overwhelming",
+          "theoreticalBasis": "Terror Management - defensive avoidance of mortality salience",
+          "dimensionScores": {
+            "affective": -2,
+            "cognitive": -1,
+            "behavioral": -1
+          },
+          "archetypeScores": {
+            "ostrich": 3,
+            "extracted": 2,
+            "normalizer": 1
+          }
+        },
+        {
+          "id": "q2a2",
+          "text": "I feel deep fear and am driven to prepare concretely for survival",
+          "theoreticalBasis": "Terror Management - active coping through control and preparation",
+          "dimensionScores": {
+            "affective": -2,
+            "behavioral": 3,
+            "temporal": 1
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "alt-right-collapse-bro": 2,
+            "salvager": 1
+          }
+        },
+        {
+          "id": "q2a3",
+          "text": "Death is natural; my spiritual practice helps me accept impermanence",
+          "theoreticalBasis": "Existential Acceptance, Buddhist Psychology, Transcendence",
+          "dimensionScores": {
+            "affective": 2,
+            "cognitive": 1,
+            "temporal": 0
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 3,
+            "sacred-keeper": 2
+          }
+        },
+        {
+          "id": "q2a4",
+          "text": "I've already lived through so much loss that this feels like continuation, not new threat",
+          "theoreticalBasis": "Post-Traumatic Stress, Trauma Habituation, Chronic Stress Adaptation",
+          "dimensionScores": {
+            "affective": -1,
+            "cognitive": 2,
+            "temporal": -1
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "extracted": 2,
+            "child-witness": 1
+          }
+        },
+        {
+          "id": "q2a5",
+          "text": "Mortality awareness motivates me to fight for justice and collective liberation",
+          "theoreticalBasis": "Terror Management - worldview defense through collective action",
+          "dimensionScores": {
+            "affective": -1,
+            "behavioral": 3,
+            "relational": 2
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "prophet-of-doom": 2,
+            "apocaloptimist": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Which statement best describes your belief about your personal agency in influencing collapse trajectories?",
+      "dimension": "behavioral",
+      "theoreticalFocus": "Self-Efficacy Theory, Locus of Control, Agency Theory",
+      "answers": [
+        {
+          "id": "q3a1",
+          "text": "I have virtually no control - forces are too large and I'm powerless",
+          "theoreticalBasis": "External Locus of Control, Learned Helplessness",
+          "dimensionScores": {
+            "behavioral": -3,
+            "affective": -1,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "child-witness": 2,
+            "extracted": 2,
+            "ostrich": 1
+          }
+        },
+        {
+          "id": "q3a2",
+          "text": "I can protect my immediate circle through concrete preparation and skills",
+          "theoreticalBasis": "Self-Efficacy Theory, Bounded Agency, Risk Mitigation",
+          "dimensionScores": {
+            "behavioral": 2,
+            "temporal": 1,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "salvager": 2,
+            "everyday-hustler": 2
+          }
+        },
+        {
+          "id": "q3a3",
+          "text": "Through collective organizing, we can reshape systems and build alternatives",
+          "theoreticalBasis": "Collective Action Theory, Social Movement Theory, Collective Efficacy",
+          "dimensionScores": {
+            "behavioral": 3,
+            "relational": 3,
+            "temporal": 1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "evangelical-nationalist": 2,
+            "apocaloptimist": 2
+          }
+        },
+        {
+          "id": "q3a4",
+          "text": "I can influence narratives and how people perceive and respond to collapse",
+          "theoreticalBasis": "Symbolic Interactionism, Narrative Agency, Framing Theory",
+          "dimensionScores": {
+            "behavioral": 2,
+            "cognitive": 2,
+            "relational": 1
+          },
+          "archetypeScores": {
+            "illusionist": 3,
+            "trickster": 2,
+            "opportunist-elite": 2
+          }
+        },
+        {
+          "id": "q3a5",
+          "text": "The system works; I can use existing institutions to maintain stability",
+          "theoreticalBasis": "System Justification, Status Quo Bias, Institutional Trust",
+          "dimensionScores": {
+            "behavioral": 1,
+            "cognitive": -1,
+            "relational": 1
+          },
+          "archetypeScores": {
+            "normalizer": 3,
+            "opportunist-elite": 2,
+            "ostrich": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "What temporal frame dominates your thinking about collapse?",
+      "dimension": "temporal",
+      "theoreticalFocus": "Temporal Psychology, Adaptive Cycle, Future Time Perspective",
+      "answers": [
+        {
+          "id": "q4a1",
+          "text": "The present moment - all we have is now; future speculation is futile",
+          "theoreticalBasis": "Present-Time Perspective, Mindfulness, Immediate Gratification",
+          "dimensionScores": {
+            "temporal": -2,
+            "affective": 1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 3,
+            "everyday-hustler": 2,
+            "trickster": 2,
+            "already-collapsed": 1
+          }
+        },
+        {
+          "id": "q4a2",
+          "text": "Imminent future (5-10 years) - I'm preparing for near-term breakdown",
+          "theoreticalBasis": "Future Time Perspective, Risk Anticipation, Adaptive Cycle (collapse phase)",
+          "dimensionScores": {
+            "temporal": 2,
+            "behavioral": 2,
+            "affective": -1
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "prophet-of-doom": 3,
+            "conspiracy-theorist": 1
+          }
+        },
+        {
+          "id": "q4a3",
+          "text": "Long-term future (generations) - I think about legacy and what we pass on",
+          "theoreticalBasis": "Future Time Perspective, Intergenerational Ethics, Legacy Motivation",
+          "dimensionScores": {
+            "temporal": 3,
+            "relational": 2,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "sacred-keeper": 3,
+            "evangelical-nationalist": 2,
+            "apocaloptimist": 2,
+            "child-witness": 1
+          }
+        },
+        {
+          "id": "q4a4",
+          "text": "The past - I reference tradition, wisdom, and what worked before",
+          "theoreticalBasis": "Past Temporal Orientation, Traditionalism, Historical Consciousness",
+          "dimensionScores": {
+            "temporal": -3,
+            "relational": 1,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "sacred-keeper": 3,
+            "evangelical-nationalist": 2,
+            "alt-right-collapse-bro": 1
+          }
+        },
+        {
+          "id": "q4a5",
+          "text": "Cyclical time - collapse and renewal are recurring patterns, not linear",
+          "theoreticalBasis": "Adaptive Cycle Theory, Panarchy, Cyclical Time Perception",
+          "dimensionScores": {
+            "temporal": 1,
+            "cognitive": 2,
+            "affective": 1
+          },
+          "archetypeScores": {
+            "apocaloptimist": 3,
+            "blissed-out-yogi": 2,
+            "sacred-keeper": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Which social/ideological group do you feel strongest alignment or accountability toward?",
+      "dimension": "relational",
+      "theoreticalFocus": "Social Identity Theory, Moral Foundations, Collective Identity",
+      "answers": [
+        {
+          "id": "q5a1",
+          "text": "My immediate family and close personal network - that's my responsibility",
+          "theoreticalBasis": "Kinship Theory, Bounded Solidarity, Individualism",
+          "dimensionScores": {
+            "relational": -2,
+            "behavioral": 1,
+            "affective": 0
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "everyday-hustler": 2,
+            "extracted": 2,
+            "ostrich": 1
+          }
+        },
+        {
+          "id": "q5a2",
+          "text": "Progressive/leftist movements fighting for systemic justice and equity",
+          "theoreticalBasis": "Social Identity Theory, Critical Theory, Collective Action",
+          "dimensionScores": {
+            "relational": 3,
+            "behavioral": 2,
+            "cognitive": 2
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "apocaloptimist": 2,
+            "prophet-of-doom": 1
+          }
+        },
+        {
+          "id": "q5a3",
+          "text": "Traditional/religious communities upholding faith and moral order",
+          "theoreticalBasis": "Moral Foundations (authority, sanctity), Religious Fundamentalism",
+          "dimensionScores": {
+            "relational": 3,
+            "temporal": -1,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "evangelical-nationalist": 3,
+            "sacred-keeper": 2,
+            "alt-right-collapse-bro": 1
+          }
+        },
+        {
+          "id": "q5a4",
+          "text": "Cultural/ethnic identity groups defending tradition and belonging",
+          "theoreticalBasis": "Group Threat Theory, Social Dominance, Ethnocentrism",
+          "dimensionScores": {
+            "relational": 2,
+            "temporal": -1,
+            "affective": -1
+          },
+          "archetypeScores": {
+            "alt-right-collapse-bro": 3,
+            "evangelical-nationalist": 2,
+            "sacred-keeper": 1
+          }
+        },
+        {
+          "id": "q5a5",
+          "text": "No specific group - I operate independently and trust my own judgment",
+          "theoreticalBasis": "Individualism, Autonomy, Weak Group Affiliation",
+          "dimensionScores": {
+            "relational": -3,
+            "behavioral": 1,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "trickster": 3,
+            "illusionist": 2,
+            "opportunist-elite": 2,
+            "salvager": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "How do you make sense of suffering and injustice in collapse contexts?",
+      "dimension": "relational",
+      "theoreticalFocus": "Moral Foundations Theory, Just World Theory, Environmental Justice",
+      "answers": [
+        {
+          "id": "q6a1",
+          "text": "Suffering is often deserved or a natural consequence of poor choices",
+          "theoreticalBasis": "Just World Hypothesis, Victim Blaming, Meritocracy Belief",
+          "dimensionScores": {
+            "relational": -2,
+            "cognitive": -1,
+            "affective": 1
+          },
+          "archetypeScores": {
+            "opportunist-elite": 3,
+            "normalizer": 2,
+            "alt-right-collapse-bro": 1
+          }
+        },
+        {
+          "id": "q6a2",
+          "text": "Suffering is systemic and rooted in exploitation, inequality, and injustice",
+          "theoreticalBasis": "Environmental Justice, Structural Violence, Critical Theory",
+          "dimensionScores": {
+            "relational": 3,
+            "cognitive": 2,
+            "affective": -1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "extracted": 2,
+            "already-collapsed": 2
+          }
+        },
+        {
+          "id": "q6a3",
+          "text": "Suffering is part of spiritual testing or divine plan with higher purpose",
+          "theoreticalBasis": "Theodicy, Religious Coping, Meaning-Making",
+          "dimensionScores": {
+            "relational": 1,
+            "affective": 1,
+            "temporal": 0
+          },
+          "archetypeScores": {
+            "evangelical-nationalist": 3,
+            "blissed-out-yogi": 2,
+            "sacred-keeper": 1
+          }
+        },
+        {
+          "id": "q6a4",
+          "text": "Suffering is random and meaningless - we just cope as best we can",
+          "theoreticalBasis": "Existentialism, Nihilism, Absurdism",
+          "dimensionScores": {
+            "relational": -1,
+            "affective": -1,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "trickster": 2,
+            "already-collapsed": 2,
+            "everyday-hustler": 2,
+            "child-witness": 1
+          }
+        },
+        {
+          "id": "q6a5",
+          "text": "I avoid dwelling on suffering - it's too painful and I can't fix it all",
+          "theoreticalBasis": "Compassion Fatigue, Defensive Avoidance, Emotional Regulation",
+          "dimensionScores": {
+            "affective": -2,
+            "cognitive": -1,
+            "behavioral": -1
+          },
+          "archetypeScores": {
+            "ostrich": 3,
+            "extracted": 2,
+            "normalizer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "What is your relationship to mainstream institutions (government, media, corporations)?",
+      "dimension": "cognitive",
+      "theoreticalFocus": "System Justification, Institutional Trust, Critical Consciousness",
+      "answers": [
+        {
+          "id": "q7a1",
+          "text": "I trust them to function reasonably well and maintain order",
+          "theoreticalBasis": "System Justification Theory, Institutional Trust, Status Quo Bias",
+          "dimensionScores": {
+            "cognitive": -2,
+            "relational": 1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "normalizer": 3,
+            "ostrich": 2,
+            "opportunist-elite": 1
+          }
+        },
+        {
+          "id": "q7a2",
+          "text": "They're fundamentally corrupt and serve elite interests against the people",
+          "theoreticalBasis": "Critical Theory, Power Analysis, Structural Critique",
+          "dimensionScores": {
+            "cognitive": 2,
+            "relational": 1,
+            "affective": -1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "prophet-of-doom": 2,
+            "conspiracy-theorist": 2
+          }
+        },
+        {
+          "id": "q7a3",
+          "text": "They're actively conspiring to deceive or control populations",
+          "theoreticalBasis": "Conspiracy Theory, Paranoid Ideation, Distrust",
+          "dimensionScores": {
+            "cognitive": 1,
+            "affective": -2,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "conspiracy-theorist": 3,
+            "prophet-of-doom": 2,
+            "alt-right-collapse-bro": 1
+          }
+        },
+        {
+          "id": "q7a4",
+          "text": "They're tools I can leverage or manipulate for strategic advantage",
+          "theoreticalBasis": "Rational Choice Theory, Instrumental Rationality, Elite Theory",
+          "dimensionScores": {
+            "behavioral": 2,
+            "cognitive": 1,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "opportunist-elite": 3,
+            "illusionist": 2,
+            "trickster": 1
+          }
+        },
+        {
+          "id": "q7a5",
+          "text": "They're largely irrelevant to my life - I've disengaged",
+          "theoreticalBasis": "Political Disengagement, Marginalization, Exit Strategy",
+          "dimensionScores": {
+            "behavioral": -1,
+            "relational": -2,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "blissed-out-yogi": 2,
+            "salvager": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "When faced with contradictory information about collapse severity, how do you process it?",
+      "dimension": "cognitive",
+      "theoreticalFocus": "Cognitive Dissonance, Confirmation Bias, Epistemic Humility",
+      "answers": [
+        {
+          "id": "q8a1",
+          "text": "I favor information that suggests things aren't as bad as feared",
+          "theoreticalBasis": "Optimism Bias, Motivated Reasoning, Cognitive Dissonance Reduction",
+          "dimensionScores": {
+            "cognitive": -2,
+            "affective": 1,
+            "behavioral": -1
+          },
+          "archetypeScores": {
+            "normalizer": 3,
+            "ostrich": 3,
+            "illusionist": 1
+          }
+        },
+        {
+          "id": "q8a2",
+          "text": "I gravitate toward worst-case scenarios - better to be over-prepared",
+          "theoreticalBasis": "Negativity Bias, Risk Aversion, Precautionary Principle",
+          "dimensionScores": {
+            "cognitive": 1,
+            "affective": -2,
+            "behavioral": 2
+          },
+          "archetypeScores": {
+            "prophet-of-doom": 3,
+            "prepper": 2,
+            "conspiracy-theorist": 1
+          }
+        },
+        {
+          "id": "q8a3",
+          "text": "I hold multiple scenarios in mind and stay flexible as evidence evolves",
+          "theoreticalBasis": "Cognitive Flexibility, Epistemic Humility, Uncertainty Tolerance",
+          "dimensionScores": {
+            "cognitive": 2,
+            "behavioral": 1,
+            "affective": 0
+          },
+          "archetypeScores": {
+            "apocaloptimist": 3,
+            "trickster": 2,
+            "salvager": 1
+          }
+        },
+        {
+          "id": "q8a4",
+          "text": "I trust my intuition and lived experience over abstract data",
+          "theoreticalBasis": "Experiential Knowledge, Embodied Cognition, Tacit Knowledge",
+          "dimensionScores": {
+            "cognitive": 0,
+            "relational": 1,
+            "affective": 0
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "everyday-hustler": 2,
+            "sacred-keeper": 2
+          }
+        },
+        {
+          "id": "q8a5",
+          "text": "I look for patterns connecting disparate pieces that reveal hidden truths",
+          "theoreticalBasis": "Pattern Recognition, Apophenia, Conspiracy Cognition",
+          "dimensionScores": {
+            "cognitive": 1,
+            "affective": -1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "conspiracy-theorist": 3,
+            "illusionist": 2,
+            "prophet-of-doom": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "What emotional stance do you most often inhabit regarding collapse?",
+      "dimension": "affective",
+      "theoreticalFocus": "Affect Theory, Emotional Regulation, Psychological Resilience",
+      "answers": [
+        {
+          "id": "q9a1",
+          "text": "Chronic anxiety, fear, or dread about what's coming",
+          "theoreticalBasis": "Anxiety Disorders, Eco-anxiety, Anticipatory Dread",
+          "dimensionScores": {
+            "affective": -3,
+            "behavioral": 0,
+            "temporal": 1
+          },
+          "archetypeScores": {
+            "prophet-of-doom": 3,
+            "already-collapsed": 2,
+            "conspiracy-theorist": 2
+          }
+        },
+        {
+          "id": "q9a2",
+          "text": "Anger or outrage at injustice and those responsible",
+          "theoreticalBasis": "Moral Anger, Righteous Indignation, Activist Affect",
+          "dimensionScores": {
+            "affective": -2,
+            "relational": 2,
+            "behavioral": 2
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "extracted": 2,
+            "prophet-of-doom": 2
+          }
+        },
+        {
+          "id": "q9a3",
+          "text": "Hope, excitement, or energized anticipation of transformation",
+          "theoreticalBasis": "Hope Theory, Optimism, Post-Traumatic Growth",
+          "dimensionScores": {
+            "affective": 3,
+            "behavioral": 2,
+            "temporal": 1
+          },
+          "archetypeScores": {
+            "apocaloptimist": 3,
+            "evangelical-nationalist": 2,
+            "opportunist-elite": 1
+          }
+        },
+        {
+          "id": "q9a4",
+          "text": "Calm acceptance or equanimity amid uncertainty",
+          "theoreticalBasis": "Mindfulness, Acceptance, Emotional Regulation",
+          "dimensionScores": {
+            "affective": 2,
+            "cognitive": 1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 3,
+            "sacred-keeper": 2,
+            "trickster": 1
+          }
+        },
+        {
+          "id": "q9a5",
+          "text": "Numbness, fatigue, or emotional exhaustion from constant stress",
+          "theoreticalBasis": "Burnout, Compassion Fatigue, Emotional Exhaustion",
+          "dimensionScores": {
+            "affective": -2,
+            "behavioral": -1,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "child-witness": 2,
+            "extracted": 1,
+            "everyday-hustler": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "If societal collapse accelerated tomorrow, what would be your primary coping strategy?",
+      "dimension": "behavioral",
+      "theoreticalFocus": "Coping Theory, Survival Psychology, Behavioral Adaptation",
+      "answers": [
+        {
+          "id": "q10a1",
+          "text": "Activate my preparations - stockpiles, skills, and survival plans",
+          "theoreticalBasis": "Problem-Focused Coping, Self-Efficacy, Preemptive Adaptation",
+          "dimensionScores": {
+            "behavioral": 3,
+            "temporal": 1,
+            "affective": 0
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "alt-right-collapse-bro": 2,
+            "salvager": 1
+          }
+        },
+        {
+          "id": "q10a2",
+          "text": "Form or join collective mutual aid networks and community defense",
+          "theoreticalBasis": "Collective Coping, Mutual Aid Theory, Community Resilience",
+          "dimensionScores": {
+            "behavioral": 3,
+            "relational": 3,
+            "affective": 1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "evangelical-nationalist": 2,
+            "sacred-keeper": 2
+          }
+        },
+        {
+          "id": "q10a3",
+          "text": "Hustle and adapt daily - find what works in the new reality",
+          "theoreticalBasis": "Adaptive Coping, Behavioral Flexibility, Resourcefulness",
+          "dimensionScores": {
+            "behavioral": 2,
+            "temporal": -1,
+            "relational": 0
+          },
+          "archetypeScores": {
+            "everyday-hustler": 3,
+            "salvager": 3,
+            "trickster": 2
+          }
+        },
+        {
+          "id": "q10a4",
+          "text": "Deepen spiritual practice and maintain inner peace regardless of external chaos",
+          "theoreticalBasis": "Emotion-Focused Coping, Spiritual Coping, Transcendence",
+          "dimensionScores": {
+            "behavioral": 0,
+            "affective": 2,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 3,
+            "sacred-keeper": 2,
+            "evangelical-nationalist": 1
+          }
+        },
+        {
+          "id": "q10a5",
+          "text": "I would struggle - I don't have resources or skills to manage that",
+          "theoreticalBasis": "Avoidant Coping, Learned Helplessness, Low Self-Efficacy",
+          "dimensionScores": {
+            "behavioral": -3,
+            "affective": -2,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "child-witness": 3,
+            "already-collapsed": 2,
+            "extracted": 2,
+            "ostrich": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "How do you use humor, irony, or satire in relation to collapse themes?",
+      "dimension": "affective",
+      "theoreticalFocus": "Humor Theory, Psychological Resilience, Defense Mechanisms",
+      "answers": [
+        {
+          "id": "q11a1",
+          "text": "Humor is essential - I cope through jokes, memes, and absurdist takes",
+          "theoreticalBasis": "Humor as Coping Mechanism, Existential Humor, Psychological Defense",
+          "dimensionScores": {
+            "affective": 1,
+            "behavioral": 1,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "trickster": 3,
+            "illusionist": 2,
+            "apocaloptimist": 1
+          }
+        },
+        {
+          "id": "q11a2",
+          "text": "I rarely use humor - collapse is too serious for levity",
+          "theoreticalBasis": "Earnest Engagement, Gravity of Threat, Moral Seriousness",
+          "dimensionScores": {
+            "affective": -1,
+            "cognitive": 1,
+            "relational": 0
+          },
+          "archetypeScores": {
+            "prophet-of-doom": 3,
+            "evangelical-nationalist": 2,
+            "prepper": 1,
+            "woke-lefty-socialist": 1
+          }
+        },
+        {
+          "id": "q11a3",
+          "text": "Humor helps but I balance it with genuine concern and action",
+          "theoreticalBasis": "Balanced Coping, Integrated Affect, Pragmatic Optimism",
+          "dimensionScores": {
+            "affective": 1,
+            "behavioral": 1,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "apocaloptimist": 2,
+            "everyday-hustler": 2,
+            "salvager": 1
+          }
+        },
+        {
+          "id": "q11a4",
+          "text": "I don't engage much with collapse themes at all, humorous or otherwise",
+          "theoreticalBasis": "Avoidance, Disengagement, Denial",
+          "dimensionScores": {
+            "affective": 0,
+            "cognitive": -1,
+            "behavioral": -1
+          },
+          "archetypeScores": {
+            "ostrich": 3,
+            "normalizer": 2,
+            "extracted": 1
+          }
+        },
+        {
+          "id": "q11a5",
+          "text": "I use dark humor to point out hypocrisy and contradictions in the system",
+          "theoreticalBasis": "Satire, Social Critique, Gallows Humor",
+          "dimensionScores": {
+            "affective": 0,
+            "cognitive": 2,
+            "relational": 1
+          },
+          "archetypeScores": {
+            "trickster": 2,
+            "woke-lefty-socialist": 2,
+            "illusionist": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "What is your relationship to traditional knowledge, indigenous wisdom, or ancestral practices?",
+      "dimension": "temporal",
+      "theoreticalFocus": "Deep Ecology, Kincentric Worldview, Cultural Continuity",
+      "answers": [
+        {
+          "id": "q12a1",
+          "text": "They're central to my worldview - I actively preserve and practice them",
+          "theoreticalBasis": "Kincentric Ecology, Cultural Continuity, Indigenous Epistemology",
+          "dimensionScores": {
+            "temporal": -2,
+            "relational": 2,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "sacred-keeper": 3,
+            "evangelical-nationalist": 2,
+            "blissed-out-yogi": 1
+          }
+        },
+        {
+          "id": "q12a2",
+          "text": "They have some value but must be integrated with modern science and progress",
+          "theoreticalBasis": "Integrative Thinking, Pragmatic Eclecticism",
+          "dimensionScores": {
+            "temporal": 0,
+            "cognitive": 1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "apocaloptimist": 2,
+            "salvager": 2,
+            "normalizer": 1
+          }
+        },
+        {
+          "id": "q12a3",
+          "text": "I'm skeptical - they're often romanticized or not evidence-based",
+          "theoreticalBasis": "Scientific Skepticism, Modernity, Progress Narrative",
+          "dimensionScores": {
+            "temporal": 1,
+            "cognitive": 0,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "opportunist-elite": 2,
+            "normalizer": 2,
+            "illusionist": 1
+          }
+        },
+        {
+          "id": "q12a4",
+          "text": "I don't have access to ancestral traditions - they were disrupted or lost",
+          "theoreticalBasis": "Cultural Disruption, Marginalization, Historical Trauma",
+          "dimensionScores": {
+            "temporal": 0,
+            "relational": -1,
+            "affective": -1
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "extracted": 2,
+            "child-witness": 1
+          }
+        },
+        {
+          "id": "q12a5",
+          "text": "I appreciate them aesthetically but they're not practically relevant to my life",
+          "theoreticalBasis": "Cultural Appropriation, Surface Engagement, Disconnection",
+          "dimensionScores": {
+            "temporal": 0,
+            "relational": 0,
+            "cognitive": -1
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 1,
+            "trickster": 1,
+            "everyday-hustler": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "How do you view the concept of 'progress' and technological advancement?",
+      "dimension": "cognitive",
+      "theoreticalFocus": "Progress Narrative, Technological Solutionism, Critical Theory",
+      "answers": [
+        {
+          "id": "q13a1",
+          "text": "Progress is real and essential - technology and innovation can solve our problems",
+          "theoreticalBasis": "Technological Solutionism, Modernization Theory, Progress Narrative",
+          "dimensionScores": {
+            "cognitive": -1,
+            "temporal": 1,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "normalizer": 3,
+            "opportunist-elite": 2,
+            "illusionist": 1
+          }
+        },
+        {
+          "id": "q13a2",
+          "text": "Progress is a destructive myth that justifies exploitation and extraction",
+          "theoreticalBasis": "Critical Theory, Decolonial Theory, Anti-Capitalism",
+          "dimensionScores": {
+            "cognitive": 2,
+            "relational": 2,
+            "affective": -1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "sacred-keeper": 2,
+            "prophet-of-doom": 2
+          }
+        },
+        {
+          "id": "q13a3",
+          "text": "We've lost something important - earlier times were better in key ways",
+          "theoreticalBasis": "Traditionalism, Nostalgia, Declension Narrative",
+          "dimensionScores": {
+            "temporal": -2,
+            "cognitive": 0,
+            "relational": 1
+          },
+          "archetypeScores": {
+            "sacred-keeper": 3,
+            "evangelical-nationalist": 2,
+            "alt-right-collapse-bro": 2
+          }
+        },
+        {
+          "id": "q13a4",
+          "text": "Progress is context-dependent - some advances help, some harm",
+          "theoreticalBasis": "Nuanced Thinking, Pragmatism, Complexity",
+          "dimensionScores": {
+            "cognitive": 2,
+            "behavioral": 1,
+            "temporal": 0
+          },
+          "archetypeScores": {
+            "apocaloptimist": 3,
+            "salvager": 2,
+            "trickster": 1
+          }
+        },
+        {
+          "id": "q13a5",
+          "text": "Progress is irrelevant - I focus on what works for me right now",
+          "theoreticalBasis": "Pragmatic Presentism, Survival Focus, Disengagement",
+          "dimensionScores": {
+            "temporal": -1,
+            "cognitive": -1,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "everyday-hustler": 3,
+            "already-collapsed": 2,
+            "trickster": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "When you imagine 20 years into the future, what scenario feels most likely?",
+      "dimension": "temporal",
+      "theoreticalFocus": "Future Scenarios, Risk Perception, Adaptive Cycle",
+      "answers": [
+        {
+          "id": "q14a1",
+          "text": "Continuation with gradual improvement - things will muddle through",
+          "theoreticalBasis": "Status Quo Bias, Optimism Bias, Normalcy Bias",
+          "dimensionScores": {
+            "temporal": 1,
+            "cognitive": -1,
+            "affective": 1
+          },
+          "archetypeScores": {
+            "normalizer": 3,
+            "ostrich": 2,
+            "opportunist-elite": 1
+          }
+        },
+        {
+          "id": "q14a2",
+          "text": "Significant breakdown - scarcity, conflict, and institutional failure",
+          "theoreticalBasis": "Risk Perception, Catastrophic Thinking, Collapse Theory",
+          "dimensionScores": {
+            "temporal": 2,
+            "cognitive": 1,
+            "affective": -2
+          },
+          "archetypeScores": {
+            "prophet-of-doom": 3,
+            "prepper": 2,
+            "conspiracy-theorist": 2,
+            "already-collapsed": 1
+          }
+        },
+        {
+          "id": "q14a3",
+          "text": "Transformation through crisis - new paradigm emerging from breakdown",
+          "theoreticalBasis": "Adaptive Cycle (renewal phase), Post-Traumatic Growth, Hope Theory",
+          "dimensionScores": {
+            "temporal": 2,
+            "affective": 2,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "apocaloptimist": 3,
+            "evangelical-nationalist": 2,
+            "woke-lefty-socialist": 2
+          }
+        },
+        {
+          "id": "q14a4",
+          "text": "For some people, worse; for others, better - increasing polarization and inequality",
+          "theoreticalBasis": "Distributional Justice, Inequality Theory, Realism",
+          "dimensionScores": {
+            "temporal": 1,
+            "cognitive": 2,
+            "relational": 1
+          },
+          "archetypeScores": {
+            "extracted": 3,
+            "opportunist-elite": 2,
+            "woke-lefty-socialist": 2,
+            "already-collapsed": 1
+          }
+        },
+        {
+          "id": "q14a5",
+          "text": "I don't project that far ahead - too many variables and unknowns",
+          "theoreticalBasis": "Uncertainty Avoidance, Present Focus, Epistemic Humility",
+          "dimensionScores": {
+            "temporal": -1,
+            "cognitive": 1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "everyday-hustler": 2,
+            "trickster": 2,
+            "salvager": 1,
+            "blissed-out-yogi": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "How do you process or manage feelings of grief, loss, or despair about ecological destruction?",
+      "dimension": "affective",
+      "theoreticalFocus": "Ecopsychology, Climate Grief, Emotional Processing",
+      "answers": [
+        {
+          "id": "q15a1",
+          "text": "I feel it deeply and allow myself to mourn - it's part of staying connected",
+          "theoreticalBasis": "Active Grieving, Emotional Authenticity, Ecopsychology",
+          "dimensionScores": {
+            "affective": -1,
+            "cognitive": 2,
+            "relational": 1
+          },
+          "archetypeScores": {
+            "sacred-keeper": 3,
+            "prophet-of-doom": 2,
+            "woke-lefty-socialist": 2
+          }
+        },
+        {
+          "id": "q15a2",
+          "text": "I channel it into action and fighting back against destruction",
+          "theoreticalBasis": "Transformative Grief, Activist Coping, Problem-Focused Emotion",
+          "dimensionScores": {
+            "affective": -1,
+            "behavioral": 3,
+            "relational": 1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "apocaloptimist": 2,
+            "prophet-of-doom": 1
+          }
+        },
+        {
+          "id": "q15a3",
+          "text": "I find peace in spiritual understanding that nature will endure in some form",
+          "theoreticalBasis": "Spiritual Coping, Acceptance, Deep Ecology",
+          "dimensionScores": {
+            "affective": 1,
+            "cognitive": 1,
+            "temporal": 0
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 3,
+            "sacred-keeper": 2,
+            "evangelical-nationalist": 1
+          }
+        },
+        {
+          "id": "q15a4",
+          "text": "I try not to think about it - it's too overwhelming",
+          "theoreticalBasis": "Avoidant Coping, Denial, Emotional Suppression",
+          "dimensionScores": {
+            "affective": -1,
+            "cognitive": -2,
+            "behavioral": -1
+          },
+          "archetypeScores": {
+            "ostrich": 3,
+            "normalizer": 2,
+            "extracted": 2
+          }
+        },
+        {
+          "id": "q15a5",
+          "text": "I've become numb to it - there's been too much loss for too long",
+          "theoreticalBasis": "Compassion Fatigue, Psychic Numbing, Trauma Response",
+          "dimensionScores": {
+            "affective": -2,
+            "cognitive": 1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "extracted": 2,
+            "child-witness": 1,
+            "everyday-hustler": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": "What is your stance on individual preparedness versus collective action?",
+      "dimension": "relational",
+      "theoreticalFocus": "Individualism vs. Collectivism, Social Capital, Mutual Aid",
+      "answers": [
+        {
+          "id": "q16a1",
+          "text": "Individual/family preparedness is paramount - can't rely on others",
+          "theoreticalBasis": "Individualism, Self-Reliance, Bounded Solidarity",
+          "dimensionScores": {
+            "relational": -3,
+            "behavioral": 2,
+            "temporal": 1
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "opportunist-elite": 2,
+            "alt-right-collapse-bro": 1
+          }
+        },
+        {
+          "id": "q16a2",
+          "text": "Collective action and mutual aid are essential - we survive together or not at all",
+          "theoreticalBasis": "Collectivism, Mutual Aid Theory, Social Capital",
+          "dimensionScores": {
+            "relational": 3,
+            "behavioral": 2,
+            "affective": 1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "evangelical-nationalist": 2,
+            "sacred-keeper": 2
+          }
+        },
+        {
+          "id": "q16a3",
+          "text": "Both are important - prepare individually but also build community networks",
+          "theoreticalBasis": "Balanced Approach, Networked Individualism, Pragmatism",
+          "dimensionScores": {
+            "relational": 1,
+            "behavioral": 2,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "apocaloptimist": 3,
+            "salvager": 2,
+            "everyday-hustler": 1
+          }
+        },
+        {
+          "id": "q16a4",
+          "text": "Neither matters much - adaptation happens organically in the moment",
+          "theoreticalBasis": "Improvisation, Spontaneous Organization, Adaptive Emergence",
+          "dimensionScores": {
+            "temporal": -1,
+            "behavioral": 0,
+            "relational": 0
+          },
+          "archetypeScores": {
+            "trickster": 3,
+            "blissed-out-yogi": 2,
+            "everyday-hustler": 1
+          }
+        },
+        {
+          "id": "q16a5",
+          "text": "I don't have capacity for either - just trying to get through each day",
+          "theoreticalBasis": "Survival Mode, Resource Scarcity, Chronic Stress",
+          "dimensionScores": {
+            "behavioral": -2,
+            "affective": -1,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "child-witness": 2,
+            "extracted": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": "How do you relate to power, privilege, and your position in social hierarchies?",
+      "dimension": "relational",
+      "theoreticalFocus": "Social Dominance Theory, Privilege Awareness, Power Dynamics",
+      "answers": [
+        {
+          "id": "q17a1",
+          "text": "I'm acutely aware of privilege and actively work to dismantle hierarchies",
+          "theoreticalBasis": "Critical Consciousness, Anti-Oppression, Reflexivity",
+          "dimensionScores": {
+            "relational": 3,
+            "cognitive": 2,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "apocaloptimist": 2,
+            "extracted": 1
+          }
+        },
+        {
+          "id": "q17a2",
+          "text": "I use whatever advantages I have - that's just smart strategy",
+          "theoreticalBasis": "Rational Choice, Social Dominance Orientation, Elite Theory",
+          "dimensionScores": {
+            "relational": -2,
+            "behavioral": 2,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "opportunist-elite": 3,
+            "illusionist": 2,
+            "normalizer": 1
+          }
+        },
+        {
+          "id": "q17a3",
+          "text": "Hierarchies are natural and necessary for order and stability",
+          "theoreticalBasis": "Social Dominance Theory, Authoritarianism, Hierarchy Justification",
+          "dimensionScores": {
+            "relational": -1,
+            "cognitive": -1,
+            "temporal": -1
+          },
+          "archetypeScores": {
+            "alt-right-collapse-bro": 3,
+            "evangelical-nationalist": 2,
+            "normalizer": 1
+          }
+        },
+        {
+          "id": "q17a4",
+          "text": "I'm at the bottom and have been systematically marginalized",
+          "theoreticalBasis": "Marginalization Theory, Intersectionality, Structural Violence",
+          "dimensionScores": {
+            "relational": 2,
+            "cognitive": 1,
+            "affective": -1
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "extracted": 2,
+            "woke-lefty-socialist": 1
+          }
+        },
+        {
+          "id": "q17a5",
+          "text": "I don't think much about it - I focus on my own path",
+          "theoreticalBasis": "Meritocracy Belief, Individual Focus, Privilege Blindness",
+          "dimensionScores": {
+            "relational": -1,
+            "cognitive": -1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "everyday-hustler": 2,
+            "ostrich": 2,
+            "blissed-out-yogi": 1,
+            "salvager": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": "What role does spirituality, religion, or meaning-making play in how you process collapse?",
+      "dimension": "relational",
+      "theoreticalFocus": "Religious Coping, Existential Meaning, Spiritual Bypass",
+      "answers": [
+        {
+          "id": "q18a1",
+          "text": "Central - my faith or spiritual practice provides framework and comfort",
+          "theoreticalBasis": "Religious Coping, Spiritual Meaning-Making, Faith as Anchor",
+          "dimensionScores": {
+            "affective": 2,
+            "relational": 2,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "evangelical-nationalist": 3,
+            "blissed-out-yogi": 3,
+            "sacred-keeper": 2
+          }
+        },
+        {
+          "id": "q18a2",
+          "text": "Important but not exclusive - I integrate spiritual and material understanding",
+          "theoreticalBasis": "Holistic Worldview, Integration, Eclectic Spirituality",
+          "dimensionScores": {
+            "relational": 1,
+            "cognitive": 1,
+            "affective": 1
+          },
+          "archetypeScores": {
+            "apocaloptimist": 2,
+            "sacred-keeper": 2,
+            "blissed-out-yogi": 1
+          }
+        },
+        {
+          "id": "q18a3",
+          "text": "Minimal - I rely on reason, science, and material analysis",
+          "theoreticalBasis": "Secular Worldview, Scientific Rationalism, Materialism",
+          "dimensionScores": {
+            "relational": -1,
+            "cognitive": 1,
+            "affective": 0
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 2,
+            "normalizer": 2,
+            "opportunist-elite": 1
+          }
+        },
+        {
+          "id": "q18a4",
+          "text": "I'm skeptical of organized religion but seek personal meaning",
+          "theoreticalBasis": "Spiritual but not Religious, Meaning-Making, Individualized Faith",
+          "dimensionScores": {
+            "relational": 0,
+            "affective": 1,
+            "cognitive": 0
+          },
+          "archetypeScores": {
+            "apocaloptimist": 2,
+            "trickster": 2,
+            "salvager": 1,
+            "illusionist": 1
+          }
+        },
+        {
+          "id": "q18a5",
+          "text": "None - existence feels meaningless or I don't have energy for that reflection",
+          "theoreticalBasis": "Nihilism, Existential Void, Exhaustion",
+          "dimensionScores": {
+            "affective": -2,
+            "cognitive": 0,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "child-witness": 2,
+            "trickster": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": "How do you respond to cognitive dissonance between your collapse awareness and daily life participation?",
+      "dimension": "cognitive",
+      "theoreticalFocus": "Cognitive Dissonance, Compartmentalization, Psychological Consistency",
+      "answers": [
+        {
+          "id": "q19a1",
+          "text": "I compartmentalize - keep collapse thoughts separate from daily functioning",
+          "theoreticalBasis": "Compartmentalization, Dissociation, Adaptive Separation",
+          "dimensionScores": {
+            "cognitive": -1,
+            "affective": 0,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "normalizer": 3,
+            "everyday-hustler": 2,
+            "extracted": 2
+          }
+        },
+        {
+          "id": "q19a2",
+          "text": "I experience constant tension and guilt about continuing 'normal' life",
+          "theoreticalBasis": "Cognitive Dissonance, Moral Stress, Psychological Tension",
+          "dimensionScores": {
+            "cognitive": 1,
+            "affective": -2,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "prophet-of-doom": 3,
+            "woke-lefty-socialist": 2,
+            "extracted": 2
+          }
+        },
+        {
+          "id": "q19a3",
+          "text": "I align my life as much as possible with my collapse awareness",
+          "theoreticalBasis": "Cognitive Consistency, Value-Action Alignment, Integrity",
+          "dimensionScores": {
+            "cognitive": 2,
+            "behavioral": 2,
+            "affective": 1
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "apocaloptimist": 2,
+            "sacred-keeper": 2,
+            "salvager": 1
+          }
+        },
+        {
+          "id": "q19a4",
+          "text": "I don't experience much dissonance - either not very collapse-aware or not participating much in mainstream life",
+          "theoreticalBasis": "No Dissonance (low awareness or disengagement)",
+          "dimensionScores": {
+            "cognitive": 0,
+            "behavioral": -1,
+            "relational": -1
+          },
+          "archetypeScores": {
+            "ostrich": 2,
+            "already-collapsed": 2,
+            "blissed-out-yogi": 2,
+            "child-witness": 1
+          }
+        },
+        {
+          "id": "q19a5",
+          "text": "I find absurdity and dark humor in the contradiction",
+          "theoreticalBasis": "Existential Absurdism, Ironic Distance, Humor as Resolution",
+          "dimensionScores": {
+            "cognitive": 1,
+            "affective": 1,
+            "behavioral": 0
+          },
+          "archetypeScores": {
+            "trickster": 3,
+            "illusionist": 2,
+            "apocaloptimist": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": "What is your primary source of resilience or what keeps you going?",
+      "dimension": "behavioral",
+      "theoreticalFocus": "Resilience Theory, Psychological Resources, Protective Factors",
+      "answers": [
+        {
+          "id": "q20a1",
+          "text": "Community, relationships, and solidarity with others",
+          "theoreticalBasis": "Social Support, Collective Resilience, Relational Strength",
+          "dimensionScores": {
+            "relational": 3,
+            "affective": 1,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "woke-lefty-socialist": 3,
+            "evangelical-nationalist": 2,
+            "sacred-keeper": 2,
+            "apocaloptimist": 1
+          }
+        },
+        {
+          "id": "q20a2",
+          "text": "Hope for transformation and belief that something better can emerge",
+          "theoreticalBasis": "Hope Theory, Optimism, Post-Traumatic Growth",
+          "dimensionScores": {
+            "affective": 3,
+            "temporal": 1,
+            "behavioral": 1
+          },
+          "archetypeScores": {
+            "apocaloptimist": 3,
+            "evangelical-nationalist": 2,
+            "woke-lefty-socialist": 1
+          }
+        },
+        {
+          "id": "q20a3",
+          "text": "Concrete skills, resources, and self-reliance",
+          "theoreticalBasis": "Self-Efficacy, Mastery, Resourcefulness",
+          "dimensionScores": {
+            "behavioral": 3,
+            "relational": -1,
+            "affective": 0
+          },
+          "archetypeScores": {
+            "prepper": 3,
+            "salvager": 3,
+            "everyday-hustler": 2
+          }
+        },
+        {
+          "id": "q20a4",
+          "text": "Spiritual practice, faith, or connection to something transcendent",
+          "theoreticalBasis": "Spiritual Resilience, Transcendence, Faith as Resource",
+          "dimensionScores": {
+            "affective": 2,
+            "relational": 1,
+            "cognitive": 1
+          },
+          "archetypeScores": {
+            "blissed-out-yogi": 3,
+            "evangelical-nationalist": 2,
+            "sacred-keeper": 2
+          }
+        },
+        {
+          "id": "q20a5",
+          "text": "Honestly, I'm not sure - I just keep moving forward out of habit or necessity",
+          "theoreticalBasis": "Habitual Persistence, Survival Mode, Minimal Resources",
+          "dimensionScores": {
+            "behavioral": 0,
+            "affective": -1,
+            "cognitive": -1
+          },
+          "archetypeScores": {
+            "already-collapsed": 3,
+            "everyday-hustler": 2,
+            "child-witness": 2,
+            "extracted": 1
+          }
+        }
+      ]
+    }
+  ],
+  "archetypes": [
+    {
+      "id": "ostrich",
+      "name": "The Ostrich",
+      "meme": "What collapse? Just sand here.",
+      "description": "You prefer to keep your head down and avoid dwelling on difficult realities. Life continues, and focusing on the present moment without excessive worry feels most natural to you.",
+      "extendedDescription": "The Ostrich archetype represents a protective mechanism—sometimes conscious, sometimes not—of filtering out overwhelming information. This isn't necessarily denial, but rather a pragmatic choice to maintain daily functioning.",
+      "traits": {
+        "awareness": "Low",
+        "affect": "Neutral",
+        "agency": "Low",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Cognitive Dissonance Theory",
+        "System Justification Theory",
+        "Denial and Defensive Avoidance"
+      ],
+      "dimensionalProfile": {
+        "affective": 0,
+        "cognitive": -2,
+        "relational": -1,
+        "temporal": -1,
+        "behavioral": -2
+      },
+      "image": "/images/ostrich.jpg"
+    },
+    {
+      "id": "blissed-out-yogi",
+      "name": "The Blissed-Out Yogi",
+      "meme": "Collapse is just an illusion.",
+      "description": "You maintain inner peace through spiritual practice and perspective. While aware of challenges, you choose to focus on consciousness, presence, and transcending material concerns.",
+      "extendedDescription": "The Yogi archetype embodies a philosophical approach to uncertainty, drawing on contemplative traditions that emphasize acceptance, non-attachment, and the impermanence of all phenomena.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Positive",
+        "agency": "Medium",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Spiritual Bypass",
+        "Mindfulness Theory",
+        "Positive Psychology",
+        "Existential Acceptance"
+      ],
+      "dimensionalProfile": {
+        "affective": 2,
+        "cognitive": 1,
+        "relational": 0,
+        "temporal": -1,
+        "behavioral": 0
+      },
+      "image": "/images/yogi.jpg"
+    },
+    {
+      "id": "illusionist",
+      "name": "The Illusionist",
+      "meme": "Trust me, it's all fine.",
+      "description": "You have a talent for crafting narratives that smooth over rough edges. Whether for self-preservation, social cohesion, or strategic advantage, you shape how others perceive reality.",
+      "extendedDescription": "The Illusionist understands the power of framing, messaging, and perception management. This archetype operates in the space between truth and comfort, wielding influence through story.",
+      "traits": {
+        "awareness": "Medium",
+        "affect": "Neutral",
+        "agency": "High",
+        "temporality": "Present",
+        "relationality": "Group",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Motivated Reasoning",
+        "Magical Thinking",
+        "Narrative Agency",
+        "Framing Theory"
+      ],
+      "dimensionalProfile": {
+        "affective": 0,
+        "cognitive": 0,
+        "relational": 0,
+        "temporal": 0,
+        "behavioral": 2
+      },
+      "image": "/images/illusionist.jpg"
+    },
+    {
+      "id": "normalizer",
+      "name": "The Normalizer",
+      "meme": "Business as usual, folks.",
+      "description": "You work to maintain stability and continuity. Whether through institutions, routines, or reassurance, you believe in preserving what works and minimizing disruption.",
+      "extendedDescription": "The Normalizer archetype values order, predictability, and gradual change. This pattern serves important social functions, providing ballast against panic and preserving functional systems.",
+      "traits": {
+        "awareness": "Low",
+        "affect": "Neutral",
+        "agency": "Medium",
+        "temporality": "Present",
+        "relationality": "Group",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Social Norms Theory",
+        "Conformity",
+        "Status Quo Bias",
+        "System Justification"
+      ],
+      "dimensionalProfile": {
+        "affective": 0,
+        "cognitive": -2,
+        "relational": 1,
+        "temporal": 0,
+        "behavioral": 0
+      },
+      "image": "/images/normalizer.jpg"
+    },
+    {
+      "id": "prepper",
+      "name": "The Prepper",
+      "meme": "Got my bunker ready.",
+      "description": "You take concrete action to prepare for disruption. Through skills, supplies, and planning, you aim to ensure resilience for yourself and those you care about.",
+      "extendedDescription": "The Prepper archetype embodies agency in the face of uncertainty, channeling awareness into practical preparation. This pattern values self-reliance, foresight, and tangible security.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Neutral",
+        "agency": "High",
+        "temporality": "Future",
+        "relationality": "Individual",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Terror Management Theory",
+        "Risk Perception",
+        "Self-Efficacy Theory",
+        "Behavioral Adaptation"
+      ],
+      "dimensionalProfile": {
+        "affective": -1,
+        "cognitive": 2,
+        "relational": -2,
+        "temporal": 2,
+        "behavioral": 3
+      },
+      "image": "/images/prepper.jpg"
+    },
+    {
+      "id": "prophet-of-doom",
+      "name": "The Prophet of Doom",
+      "meme": "I told you so.",
+      "description": "You see the writing on the wall with clarity that others miss or ignore. Your awareness of systemic fragility comes with urgency and sometimes frustration at collective inaction.",
+      "extendedDescription": "The Prophet archetype carries the burden of foresight—seeing trajectories others deny. This pattern combines high awareness with the emotional weight of witnessing slow-motion catastrophe.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Negative",
+        "agency": "Medium",
+        "temporality": "Future",
+        "relationality": "Individual",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Apocalypticism",
+        "Social Identity Theory",
+        "Moral Panic",
+        "Risk Communication"
+      ],
+      "dimensionalProfile": {
+        "affective": -3,
+        "cognitive": 2,
+        "relational": 0,
+        "temporal": 2,
+        "behavioral": 1
+      },
+      "image": "/images/prophet.jpg"
+    },
+    {
+      "id": "alt-right-collapse-bro",
+      "name": "The Alt-Right Collapse Bro",
+      "meme": "Collapse is coming, stay strong.",
+      "description": "You combine awareness of systemic fragility with traditional or nationalist values. You see collapse through a lens of strength, identity, and in-group solidarity.",
+      "extendedDescription": "This archetype blends collapse consciousness with specific ideological commitments around hierarchy, tradition, and group identity. It channels anxiety into mobilization around particular visions of order.",
+      "traits": {
+        "awareness": "Medium",
+        "affect": "Negative",
+        "agency": "High",
+        "temporality": "Future",
+        "relationality": "Group",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Social Dominance Theory",
+        "Group Threat Theory",
+        "Authoritarianism",
+        "Ethnocentrism"
+      ],
+      "dimensionalProfile": {
+        "affective": -1,
+        "cognitive": 1,
+        "relational": 1,
+        "temporal": 1,
+        "behavioral": 2
+      },
+      "image": "/images/alt-right-bro.jpg"
+    },
+    {
+      "id": "evangelical-nationalist",
+      "name": "The Evangelical Nationalist",
+      "meme": "Prepare for the rapture.",
+      "description": "You interpret current events through the lens of faith and prophecy. Collapse may be judgment, purification, or the necessary precursor to divine restoration.",
+      "extendedDescription": "The Evangelical Nationalist sees collapse as meaningful—part of a cosmic narrative with spiritual purpose. This archetype finds hope and agency through faith communities and eschatological frameworks.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Positive",
+        "agency": "Medium",
+        "temporality": "Future",
+        "relationality": "Group",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Moral Foundations Theory",
+        "Religious Fundamentalism",
+        "Collective Identity",
+        "Eschatology"
+      ],
+      "dimensionalProfile": {
+        "affective": 1,
+        "cognitive": 1,
+        "relational": 3,
+        "temporal": 1,
+        "behavioral": 1
+      },
+      "image": "/images/evangelical.jpg"
+    },
+    {
+      "id": "apocaloptimist",
+      "name": "The Apocaloptimist",
+      "meme": "Collapse? Bring it on!",
+      "description": "You see crisis as opportunity. Old systems must break down to make way for something better. You approach uncertainty with energy and creative possibility.",
+      "extendedDescription": "The Apocaloptimist archetype transforms anxiety into anticipation, viewing collapse not as ending but as transition. This pattern combines high awareness with active hope and orientation toward emergence.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Positive",
+        "agency": "High",
+        "temporality": "Future",
+        "relationality": "Individual",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Optimism Bias",
+        "Resilience Theory",
+        "Post-Traumatic Growth",
+        "Adaptive Cycle (renewal phase)"
+      ],
+      "dimensionalProfile": {
+        "affective": 3,
+        "cognitive": 2,
+        "relational": 1,
+        "temporal": 2,
+        "behavioral": 2
+      },
+      "image": "/images/apocaloptimist.jpg"
+    },
+    {
+      "id": "trickster",
+      "name": "The Trickster",
+      "meme": "Collapse? Let's prank it.",
+      "description": "You navigate uncertainty through humor, chaos, and lateral thinking. When systems fail, you improvise, subvert, and find the absurdity in it all.",
+      "extendedDescription": "The Trickster archetype operates outside conventional rules, using wit and irreverence as survival tools. This pattern sees fluidity where others see fixity, and finds freedom in disruption.",
+      "traits": {
+        "awareness": "Medium",
+        "affect": "Neutral",
+        "agency": "High",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Jungian Archetypes",
+        "Humor Theory",
+        "Psychological Resilience",
+        "Existential Absurdism"
+      ],
+      "dimensionalProfile": {
+        "affective": 1,
+        "cognitive": 1,
+        "relational": -1,
+        "temporal": -1,
+        "behavioral": 1
+      },
+      "image": "/images/trickster.jpg"
+    },
+    {
+      "id": "woke-lefty-socialist",
+      "name": "The Woke Lefty Socialist",
+      "meme": "Collapse reveals the system.",
+      "description": "You see collapse as exposing long-standing injustices and systemic failures. Your response centers on solidarity, collective action, and building alternative structures.",
+      "extendedDescription": "This archetype combines structural analysis with moral urgency, viewing collapse through lenses of equity, power, and liberation. It emphasizes collective agency and systemic transformation.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Negative",
+        "agency": "High",
+        "temporality": "Future",
+        "relationality": "Group",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Critical Theory",
+        "Social Justice Theory",
+        "Collective Action Theory",
+        "Environmental Justice"
+      ],
+      "dimensionalProfile": {
+        "affective": -1,
+        "cognitive": 2,
+        "relational": 3,
+        "temporal": 1,
+        "behavioral": 3
+      },
+      "image": "/images/woke-lefty.jpg"
+    },
+    {
+      "id": "salvager",
+      "name": "The Salvager",
+      "meme": "Trash is treasure now.",
+      "description": "You see value in what others discard. Whether material goods, knowledge, or practices, you reclaim, repurpose, and make do with what's available.",
+      "extendedDescription": "The Salvager archetype embodies resourcefulness and adaptive reuse. This pattern finds agency through creative recombination, honoring both pragmatism and sustainability.",
+      "traits": {
+        "awareness": "Medium",
+        "affect": "Neutral",
+        "agency": "High",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Resourcefulness Theory",
+        "Behavioral Adaptation",
+        "Survival Psychology",
+        "Informal Economy"
+      ],
+      "dimensionalProfile": {
+        "affective": 0,
+        "cognitive": 1,
+        "relational": 0,
+        "temporal": 0,
+        "behavioral": 3
+      },
+      "image": "/images/salvager.jpg"
+    },
+    {
+      "id": "sacred-keeper",
+      "name": "The Sacred Keeper",
+      "meme": "Guardians of the old ways.",
+      "description": "You hold and protect what is timeless—traditions, wisdom, practices that connect to something deeper than the current moment. You are a vessel for continuity.",
+      "extendedDescription": "The Sacred Keeper archetype sees collapse as loss but also as reason to preserve. This pattern values lineage, ritual, and the transmission of meaning across time.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Positive",
+        "agency": "Medium",
+        "temporality": "Past",
+        "relationality": "Group",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Deep Ecology",
+        "Animism",
+        "Ecopsychology",
+        "Kincentric Worldview"
+      ],
+      "dimensionalProfile": {
+        "affective": 1,
+        "cognitive": 2,
+        "relational": 2,
+        "temporal": -2,
+        "behavioral": 1
+      },
+      "image": "/images/sacred-keeper.jpg"
+    },
+    {
+      "id": "everyday-hustler",
+      "name": "The Everyday Hustler",
+      "meme": "Hustle never stops.",
+      "description": "You focus on the daily grind, adapting to whatever conditions exist. Whether through multiple jobs, side gigs, or sheer determination, you just keep moving forward.",
+      "extendedDescription": "The Everyday Hustler embodies practical resilience—not through grand preparation or ideology, but through persistent adaptation and grinding it out day by day.",
+      "traits": {
+        "awareness": "Medium",
+        "affect": "Neutral",
+        "agency": "High",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Coping Theory",
+        "Informal Economy Studies",
+        "Agency Theory",
+        "Adaptive Coping"
+      ],
+      "dimensionalProfile": {
+        "affective": 0,
+        "cognitive": 0,
+        "relational": -1,
+        "temporal": -2,
+        "behavioral": 2
+      },
+      "image": "/images/hustler.jpg"
+    },
+    {
+      "id": "already-collapsed",
+      "name": "The Already Collapsed",
+      "meme": "Welcome to the new normal.",
+      "description": "For you, collapse isn't future—it's lived reality. You've experienced ongoing breakdown firsthand and navigate conditions others only imagine or fear.",
+      "extendedDescription": "The Already Collapsed archetype speaks from within the ruins, carrying knowledge that comes only from direct experience of systemic failure and survival at the margins.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Negative",
+        "agency": "Low",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Post-Traumatic Stress Theory",
+        "Marginalization Theory",
+        "Resilience under Chronic Stress",
+        "Structural Violence"
+      ],
+      "dimensionalProfile": {
+        "affective": -2,
+        "cognitive": 2,
+        "relational": 0,
+        "temporal": -1,
+        "behavioral": -2
+      },
+      "image": "/images/already-collapsed.jpg"
+    },
+    {
+      "id": "extracted",
+      "name": "The Extracted",
+      "meme": "Safe and sound, for now.",
+      "description": "You have—through privilege, geography, or circumstance—been removed from the most immediate impacts. You observe from relative safety, though perhaps with unease.",
+      "extendedDescription": "The Extracted archetype occupies a position of insulation that comes with its own complexities—awareness of luck or injustice, questions of responsibility, and the fragility of separation.",
+      "traits": {
+        "awareness": "Low",
+        "affect": "Neutral",
+        "agency": "Low",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Political Ecology",
+        "Environmental Justice",
+        "Structural Violence",
+        "Privilege Dynamics"
+      ],
+      "dimensionalProfile": {
+        "affective": 0,
+        "cognitive": -1,
+        "relational": -1,
+        "temporal": 0,
+        "behavioral": -1
+      },
+      "image": "/images/extracted.jpg"
+    },
+    {
+      "id": "child-witness",
+      "name": "The Child Witness",
+      "meme": "Why is everything breaking?",
+      "description": "You observe collapse with fresh eyes, without the frameworks adults use to process or rationalize. You see clearly, but without the tools to fully understand or respond.",
+      "extendedDescription": "The Child Witness archetype represents innocence meeting instability—awareness without context, perception without power, and the vulnerability of those inheriting uncertain futures.",
+      "traits": {
+        "awareness": "Low",
+        "affect": "Neutral",
+        "agency": "Low",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Developmental Psychology",
+        "Trauma Theory",
+        "Social Learning Theory",
+        "Intergenerational Trauma"
+      ],
+      "dimensionalProfile": {
+        "affective": -1,
+        "cognitive": 0,
+        "relational": -1,
+        "temporal": 0,
+        "behavioral": -3
+      },
+      "image": "/images/child-witness.jpg"
+    },
+    {
+      "id": "opportunist-elite",
+      "name": "The Opportunist Elite",
+      "meme": "Collapse is just another market.",
+      "description": "You see crisis as advantage. With resources and connections, you position yourself to benefit from disruption, viewing instability through the lens of strategic gain.",
+      "extendedDescription": "The Opportunist Elite archetype combines high awareness with instrumental agency—not seeking to prevent collapse but to navigate and exploit it from positions of power.",
+      "traits": {
+        "awareness": "High",
+        "affect": "Neutral",
+        "agency": "High",
+        "temporality": "Future",
+        "relationality": "Individual",
+        "posture": "Active"
+      },
+      "theoreticalFoundations": [
+        "Elite Theory",
+        "Power Dynamics",
+        "Rational Choice Theory",
+        "Instrumental Rationality"
+      ],
+      "dimensionalProfile": {
+        "affective": 0,
+        "cognitive": 1,
+        "relational": -2,
+        "temporal": 1,
+        "behavioral": 2
+      },
+      "image": "/images/opportunist-elite.jpg"
+    },
+    {
+      "id": "conspiracy-theorist",
+      "name": "The Conspiracy Theorist",
+      "meme": "They want us to fail.",
+      "description": "You see patterns and connections that others miss—or manufacture. Collapse isn't random but orchestrated, and uncovering the hidden truth feels urgent and necessary.",
+      "extendedDescription": "The Conspiracy Theorist archetype seeks explanatory frameworks that restore agency to seemingly chaotic events. This pattern can provide community and meaning, though sometimes at the cost of accuracy.",
+      "traits": {
+        "awareness": "Medium",
+        "affect": "Negative",
+        "agency": "Medium",
+        "temporality": "Present",
+        "relationality": "Individual",
+        "posture": "Passive"
+      },
+      "theoreticalFoundations": [
+        "Conspiracy Theory Formation",
+        "Pattern Recognition",
+        "Motivated Reasoning",
+        "Paranoid Ideation"
+      ],
+      "dimensionalProfile": {
+        "affective": -2,
+        "cognitive": 1,
+        "relational": -1,
+        "temporal": 1,
+        "behavioral": 0
+      },
+      "image": "/images/conspiracy-theorist.jpg"
+    }
+  ],
+  "scoringAlgorithm": {
+    "description": "Multi-dimensional scoring system that calculates both dimensional and archetype alignment",
+    "dimensions": {
+      "scale": {
+        "min": -3,
+        "max": 3,
+        "interpretation": "Negative values indicate avoidance/low expression; positive values indicate high expression of dimension"
+      },
+      "normalization": "Raw dimension scores are summed across all questions, then normalized to [-100, 100] scale for visualization"
+    },
+    "archetypes": {
+      "method": "Weighted sum of answer scores across all questions",
+      "tieBreaking": "If multiple archetypes have similar scores (within 10% of top score), consider dimensional profile match as secondary criterion",
+      "threshold": "Top 3 archetypes displayed; others shown if within 15% of top score"
+    }
+  }
+}

@@ -104,9 +104,9 @@
         {
           "id": "q1a5",
           "text": "I look for the hidden patterns or orchestrated causes behind the instability",
-          "theoreticalBasis": "Motivated Reasoning, Pattern Recognition, Conspiracy Theory Formation",
+          "theoreticalBasis": "Motivated Reasoning, Pattern Recognition, Conspiracy Theory Formation, Apophenia",
           "dimensionScores": {
-            "cognitive": 1,
+            "cognitive": 0,
             "affective": -1,
             "relational": -1
           },
@@ -528,7 +528,8 @@
           "dimensionScores": {
             "affective": -2,
             "cognitive": -1,
-            "behavioral": -1
+            "behavioral": -1,
+            "relational": -1
           },
           "archetypeScores": {
             "ostrich": 3,
@@ -690,9 +691,9 @@
         {
           "id": "q8a5",
           "text": "I look for patterns connecting disparate pieces that reveal hidden truths",
-          "theoreticalBasis": "Pattern Recognition, Apophenia, Conspiracy Cognition",
+          "theoreticalBasis": "Pattern Recognition, Apophenia, Conspiracy Cognition, Distorted Awareness",
           "dimensionScores": {
-            "cognitive": 1,
+            "cognitive": 0,
             "affective": -1,
             "behavioral": 0
           },
@@ -875,17 +876,17 @@
     {
       "id": "q11",
       "text": "How do you use humor, irony, or satire in relation to collapse themes?",
-      "dimension": "affective",
-      "theoreticalFocus": "Humor Theory, Psychological Resilience, Defense Mechanisms",
+      "dimension": "behavioral",
+      "theoreticalFocus": "Humor as Coping Strategy, Psychological Defense Mechanisms, Behavioral Adaptation",
       "answers": [
         {
           "id": "q11a1",
           "text": "Humor is essential - I cope through jokes, memes, and absurdist takes",
           "theoreticalBasis": "Humor as Coping Mechanism, Existential Humor, Psychological Defense",
           "dimensionScores": {
+            "behavioral": 2,
             "affective": 1,
-            "behavioral": 1,
-            "cognitive": 1
+            "cognitive": 0
           },
           "archetypeScores": {
             "trickster": 3,
@@ -898,9 +899,9 @@
           "text": "I rarely use humor - collapse is too serious for levity",
           "theoreticalBasis": "Earnest Engagement, Gravity of Threat, Moral Seriousness",
           "dimensionScores": {
+            "behavioral": -1,
             "affective": -1,
-            "cognitive": 1,
-            "relational": 0
+            "cognitive": 1
           },
           "archetypeScores": {
             "prophet-of-doom": 3,
@@ -914,9 +915,9 @@
           "text": "Humor helps but I balance it with genuine concern and action",
           "theoreticalBasis": "Balanced Coping, Integrated Affect, Pragmatic Optimism",
           "dimensionScores": {
+            "behavioral": 2,
             "affective": 1,
-            "behavioral": 1,
-            "cognitive": 1
+            "cognitive": 0
           },
           "archetypeScores": {
             "apocaloptimist": 2,
@@ -929,9 +930,9 @@
           "text": "I don't engage much with collapse themes at all, humorous or otherwise",
           "theoreticalBasis": "Avoidance, Disengagement, Denial",
           "dimensionScores": {
-            "affective": 0,
+            "behavioral": -2,
             "cognitive": -1,
-            "behavioral": -1
+            "affective": 0
           },
           "archetypeScores": {
             "ostrich": 3,
@@ -944,7 +945,7 @@
           "text": "I use dark humor to point out hypocrisy and contradictions in the system",
           "theoreticalBasis": "Satire, Social Critique, Gallows Humor",
           "dimensionScores": {
-            "affective": 0,
+            "behavioral": 1,
             "cognitive": 2,
             "relational": 1
           },
@@ -1462,17 +1463,17 @@
     {
       "id": "q18",
       "text": "What role does spirituality, religion, or meaning-making play in how you process collapse?",
-      "dimension": "relational",
-      "theoreticalFocus": "Religious Coping, Existential Meaning, Spiritual Bypass",
+      "dimension": "cognitive",
+      "theoreticalFocus": "Existential Meaning-Making, Religious Coping, Worldview Formation, Spiritual Frameworks",
       "answers": [
         {
           "id": "q18a1",
           "text": "Central - my faith or spiritual practice provides framework and comfort",
           "theoreticalBasis": "Religious Coping, Spiritual Meaning-Making, Faith as Anchor",
           "dimensionScores": {
+            "cognitive": 2,
             "affective": 2,
-            "relational": 2,
-            "cognitive": 0
+            "relational": 1
           },
           "archetypeScores": {
             "evangelical-nationalist": 3,
@@ -1485,9 +1486,9 @@
           "text": "Important but not exclusive - I integrate spiritual and material understanding",
           "theoreticalBasis": "Holistic Worldview, Integration, Eclectic Spirituality",
           "dimensionScores": {
-            "relational": 1,
-            "cognitive": 1,
-            "affective": 1
+            "cognitive": 2,
+            "affective": 1,
+            "relational": 0
           },
           "archetypeScores": {
             "apocaloptimist": 2,
@@ -1500,8 +1501,8 @@
           "text": "Minimal - I rely on reason, science, and material analysis",
           "theoreticalBasis": "Secular Worldview, Scientific Rationalism, Materialism",
           "dimensionScores": {
-            "relational": -1,
             "cognitive": 1,
+            "relational": -1,
             "affective": 0
           },
           "archetypeScores": {
@@ -1515,9 +1516,9 @@
           "text": "I'm skeptical of organized religion but seek personal meaning",
           "theoreticalBasis": "Spiritual but not Religious, Meaning-Making, Individualized Faith",
           "dimensionScores": {
-            "relational": 0,
+            "cognitive": 1,
             "affective": 1,
-            "cognitive": 0
+            "relational": -1
           },
           "archetypeScores": {
             "apocaloptimist": 2,
@@ -1531,8 +1532,8 @@
           "text": "None - existence feels meaningless or I don't have energy for that reflection",
           "theoreticalBasis": "Nihilism, Existential Void, Exhaustion",
           "dimensionScores": {
+            "cognitive": -1,
             "affective": -2,
-            "cognitive": 0,
             "relational": -1
           },
           "archetypeScores": {
@@ -1630,18 +1631,18 @@
     },
     {
       "id": "q20",
-      "text": "What is your primary source of resilience or what keeps you going?",
+      "text": "What behavioral strategies or actions do you rely on most to maintain resilience?",
       "dimension": "behavioral",
-      "theoreticalFocus": "Resilience Theory, Psychological Resources, Protective Factors",
+      "theoreticalFocus": "Behavioral Resilience, Coping Strategies, Active Adaptation, Self-Efficacy",
       "answers": [
         {
           "id": "q20a1",
-          "text": "Community, relationships, and solidarity with others",
-          "theoreticalBasis": "Social Support, Collective Resilience, Relational Strength",
+          "text": "Actively building and maintaining community connections and mutual aid networks",
+          "theoreticalBasis": "Social Support Seeking Behavior, Collective Action, Network Building",
           "dimensionScores": {
+            "behavioral": 2,
             "relational": 3,
-            "affective": 1,
-            "behavioral": 1
+            "affective": 1
           },
           "archetypeScores": {
             "woke-lefty-socialist": 3,
@@ -1652,12 +1653,12 @@
         },
         {
           "id": "q20a2",
-          "text": "Hope for transformation and belief that something better can emerge",
-          "theoreticalBasis": "Hope Theory, Optimism, Post-Traumatic Growth",
+          "text": "Engaging in creative work, innovation, or projects focused on transformation",
+          "theoreticalBasis": "Creative Coping, Generativity, Problem-Focused Action, Post-Traumatic Growth",
           "dimensionScores": {
-            "affective": 3,
-            "temporal": 1,
-            "behavioral": 1
+            "behavioral": 2,
+            "affective": 2,
+            "temporal": 1
           },
           "archetypeScores": {
             "apocaloptimist": 3,
@@ -1682,11 +1683,11 @@
         },
         {
           "id": "q20a4",
-          "text": "Spiritual practice, faith, or connection to something transcendent",
-          "theoreticalBasis": "Spiritual Resilience, Transcendence, Faith as Resource",
+          "text": "Practicing spiritual rituals, meditation, prayer, or mindfulness routines",
+          "theoreticalBasis": "Spiritual Coping Practices, Mindfulness Practice, Ritual Behavior, Faith-Based Action",
           "dimensionScores": {
+            "behavioral": 2,
             "affective": 2,
-            "relational": 1,
             "cognitive": 1
           },
           "archetypeScores": {
@@ -1698,9 +1699,9 @@
         {
           "id": "q20a5",
           "text": "Honestly, I'm not sure - I just keep moving forward out of habit or necessity",
-          "theoreticalBasis": "Habitual Persistence, Survival Mode, Minimal Resources",
+          "theoreticalBasis": "Habitual Persistence, Survival Mode, Minimal Resources, Low Self-Efficacy",
           "dimensionScores": {
-            "behavioral": 0,
+            "behavioral": -2,
             "affective": -1,
             "cognitive": -1
           },
@@ -1794,8 +1795,8 @@
       ],
       "dimensionalProfile": {
         "affective": 0,
-        "cognitive": 0,
-        "relational": 0,
+        "cognitive": 1,
+        "relational": 1,
         "temporal": 0,
         "behavioral": 2
       },

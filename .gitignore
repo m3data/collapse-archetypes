@@ -10,6 +10,7 @@ Desktop.ini
 
 # Claude Code Internal Files
 .claude/
+CLAUDE.md
 
 # Editor and IDE Files
 .vscode/
@@ -51,3 +52,7 @@ build/
 
 # AI Assistant Working Folders
 claude-dev/
+
+# Git Files
+.git/
+.gitignore

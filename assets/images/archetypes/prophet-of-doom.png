@@ -1,0 +1,7 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" fill="#f4ede1"/>
+  <circle cx="300" cy="300" r="200" fill="#d4c4a8" opacity="0.5"/>
+  <circle cx="300" cy="300" r="150" fill="#c67b5c" opacity="0.3"/>
+  <circle cx="300" cy="300" r="100" fill="#8a9a7b" opacity="0.3"/>
+  <text x="300" y="320" font-family="serif" font-size="24" fill="#4a3f2f" text-anchor="middle">Archetype Image</text>
+</svg>

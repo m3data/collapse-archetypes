@@ -163,7 +163,10 @@ function renderDimensionalProfile() {
                 <p class="dimension-desc">${dim.description}</p>
                 <p class="dimension-theory">
                     <i class="ph ph-book-bookmark"></i>
-                    ${dim.theory}
+                    <a href="../theory.html#${dim.id}" class="theory-text-link" aria-label="Read about ${dim.theory} in theoretical framework">
+                        ${dim.theory}
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
                 </p>
             </div>
         `;
@@ -244,18 +247,67 @@ function renderRadarChart(data) {
 }
 
 /**
+ * Map theory names to dimension IDs for linking
+ */
+const theoryToDimension = {
+    'Terror Management Theory': 'affective',
+    'Positive Psychology': 'affective',
+    'System Justification Theory': 'cognitive',
+    'Cognitive Dissonance': 'cognitive',
+    'Social Identity Theory': 'relational',
+    'Cultural Theory of Risk': 'relational',
+    "Holling's Adaptive Cycle": 'temporal',
+    'Panarchy': 'temporal',
+    'Self-Efficacy Theory': 'behavioral',
+    'Behavioral Adaptation': 'behavioral'
+};
+
+/**
+ * Get dimension ID for a theory name
+ * Checks for partial matches in theory string
+ */
+function getDimensionForTheory(theoryString) {
+    for (const [theoryName, dimensionId] of Object.entries(theoryToDimension)) {
+        if (theoryString.includes(theoryName)) {
+            return dimensionId;
+        }
+    }
+    // Default to cognitive if no match found
+    return 'cognitive';
+}
+
+/**
  * Render theoretical foundations
  */
 function renderTheory() {
     const theoryList = document.getElementById('theoryList');
     const foundations = currentArchetype.theoreticalFoundations || [];
 
-    theoryList.innerHTML = foundations.map(theory => `
-        <li class="theory-item">
-            <i class="ph ph-book-bookmark"></i>
-            <span>${theory}</span>
-        </li>
-    `).join('');
+    theoryList.innerHTML = foundations.map(theory => {
+        const dimensionId = getDimensionForTheory(theory);
+        return `
+            <li>
+                <a href="../theory.html#${dimensionId}" class="theory-list-link" aria-label="Read about ${theory} in theoretical framework">
+                    ${theory}
+                    <i class="ph ph-arrow-right arrow-icon"></i>
+                </a>
+            </li>
+        `;
+    }).join('');
+
+    // Add footer link to full framework
+    const theorySection = theoryList.closest('.theory-section');
+    if (theorySection && !theorySection.querySelector('.theory-explore-footer')) {
+        const footer = document.createElement('div');
+        footer.className = 'theory-explore-footer';
+        footer.innerHTML = `
+            <a href="../theory.html" class="explore-link theory-explore">
+                <i class="ph ph-book-open"></i>
+                Explore the Full Theoretical Framework
+            </a>
+        `;
+        theorySection.appendChild(footer);
+    }
 }
 
 /**

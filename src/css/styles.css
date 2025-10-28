@@ -131,6 +131,13 @@ html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 body {
@@ -2308,5 +2315,269 @@ strong {
 
     .theory-actions .btn {
         width: 100%;
+    }
+}
+
+/* ============================================
+   THEORY LINK STYLES
+   ============================================ */
+
+/* Inline Dimension Links */
+.dimension-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-earth-light);
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-top: var(--space-sm);
+    transition: color var(--transition-fast);
+}
+
+.dimension-link i {
+    font-size: 1em;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.dimension-link:hover {
+    color: var(--color-accent);
+}
+
+.dimension-link:hover i {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.dimension-link:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Theory Heading Links */
+.theory-heading-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+.theory-heading-link i {
+    font-size: 0.85em;
+    opacity: 0.5;
+    transition: opacity var(--transition-base), transform var(--transition-fast);
+}
+
+.theory-heading-link:hover {
+    border-bottom-color: var(--color-sage);
+}
+
+.theory-heading-link:hover i {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.theory-heading-link:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: var(--border-radius);
+}
+
+/* Theory List Item Links */
+.theory-list-link {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius);
+    background: transparent;
+    border-left: 3px solid transparent;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.theory-list-link::before {
+    content: "•";
+    color: var(--color-sage);
+    margin-right: var(--space-sm);
+    font-weight: bold;
+}
+
+.theory-list-link .arrow-icon {
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    font-size: 1.1em;
+    transition: opacity var(--transition-base);
+}
+
+.theory-list-link:hover {
+    background: var(--color-surface);
+    border-left-color: var(--color-sage);
+    transform: translateX(3px);
+}
+
+.theory-list-link:hover .arrow-icon {
+    opacity: 0.7;
+}
+
+.theory-list-link:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Theory Text Link (inline in theory descriptions) */
+.theory-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-earth-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.theory-text-link i {
+    font-size: 0.9em;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.theory-text-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.theory-text-link:hover i {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.theory-text-link:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Theory CTA Button */
+.theory-cta {
+    margin-top: var(--space-lg);
+    display: inline-flex;
+}
+
+/* Theory Explore Footer */
+.theory-explore-footer {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+/* Back Navigation */
+.back-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(244, 237, 225, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(44, 36, 26, 0.06);
+    animation: slideIn 300ms ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.back-btn {
+    font-size: var(--text-sm);
+    padding: var(--space-xs) var(--space-md);
+    font-weight: 500;
+    gap: 0.35rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.back-btn:hover {
+    background: var(--color-surface);
+    border-color: var(--color-sage);
+    color: var(--color-earth-dark);
+}
+
+.back-btn i {
+    font-size: 1em;
+}
+
+@media (min-width: 768px) {
+    .back-btn {
+        font-size: var(--text-sm);
+        padding: var(--space-xs) var(--space-md);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .back-navigation {
+        animation: none;
+    }
+}
+
+/* Section Highlight Animation */
+.theory-dimension-section.highlight-target {
+    animation: sectionHighlight 2s ease-out;
+}
+
+@keyframes sectionHighlight {
+    0% {
+        background: rgba(138, 154, 123, 0.1);
+        box-shadow: 0 0 0 3px rgba(138, 154, 123, 0.2);
+    }
+    100% {
+        background: transparent;
+        box-shadow: none;
+    }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .dimension-link,
+    .theory-heading-link,
+    .theory-list-link,
+    .theory-text-link {
+        transition: color 150ms, background-color 150ms;
+        transform: none !important;
+    }
+
+    .dimension-link i,
+    .theory-heading-link i,
+    .theory-text-link i {
+        transform: none !important;
+    }
+
+    .theory-list-link:hover {
+        transform: none !important;
+    }
+
+    .theory-dimension-section.highlight-target {
+        animation: none;
+        background: rgba(138, 154, 123, 0.1);
     }
 }

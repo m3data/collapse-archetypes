@@ -21,6 +21,14 @@
             <span class="breadcrumb-current">Theoretical Framework</span>
         </nav>
 
+        <!-- Contextual Back Button (appears when navigating from archetype/results) -->
+        <div class="back-navigation hidden" id="backNavigation">
+            <button class="btn btn-outline back-btn" id="backBtn" aria-label="Return to previous page">
+                <i class="ph ph-arrow-left"></i>
+                <span id="backBtnText">Back to Previous Page</span>
+            </button>
+        </div>
+
         <div class="content-wrapper theory-page">
 
             <!-- Header -->
@@ -46,7 +54,7 @@
                 </div>
 
                 <!-- Dimension Sections -->
-                <article class="theory-dimension-section" id="affective">
+                <article class="theory-dimension-section" id="affective" tabindex="-1">
                     <div class="dimension-icon" aria-hidden="true">
                         <i class="ph ph-heart"></i>
                     </div>
@@ -81,7 +89,7 @@
                     </div>
                 </article>
 
-                <article class="theory-dimension-section" id="cognitive">
+                <article class="theory-dimension-section" id="cognitive" tabindex="-1">
                     <div class="dimension-icon" aria-hidden="true">
                         <i class="ph ph-brain"></i>
                     </div>
@@ -115,7 +123,7 @@
                     </div>
                 </article>
 
-                <article class="theory-dimension-section" id="relational">
+                <article class="theory-dimension-section" id="relational" tabindex="-1">
                     <div class="dimension-icon" aria-hidden="true">
                         <i class="ph ph-users-three"></i>
                     </div>
@@ -150,7 +158,7 @@
                     </div>
                 </article>
 
-                <article class="theory-dimension-section" id="temporal">
+                <article class="theory-dimension-section" id="temporal" tabindex="-1">
                     <div class="dimension-icon" aria-hidden="true">
                         <i class="ph ph-clock-clockwise"></i>
                     </div>
@@ -184,7 +192,7 @@
                     </div>
                 </article>
 
-                <article class="theory-dimension-section" id="behavioral">
+                <article class="theory-dimension-section" id="behavioral" tabindex="-1">
                     <div class="dimension-icon" aria-hidden="true">
                         <i class="ph ph-lightning"></i>
                     </div>
@@ -319,5 +327,59 @@
             </p>
         </div>
     </footer>
+
+    <!-- Script for section highlighting and back navigation -->
+    <script>
+        // Show contextual back button if arriving from archetype or results page
+        (function() {
+            const backNavigation = document.getElementById('backNavigation');
+            const backBtn = document.getElementById('backBtn');
+            const backBtnText = document.getElementById('backBtnText');
+
+            // Check if there's a previous page in history and if it's from this site
+            const referrer = document.referrer;
+            const hasHistory = window.history.length > 1;
+
+            if (hasHistory && referrer) {
+                // Check if referrer is from the same domain
+                const referrerUrl = new URL(referrer);
+                const currentUrl = new URL(window.location.href);
+
+                if (referrerUrl.hostname === currentUrl.hostname) {
+                    // Determine the context
+                    let backText = 'Back to Previous Page';
+
+                    if (referrer.includes('archetype.html')) {
+                        backText = 'Back to Archetype';
+                    } else if (referrer.includes('archetypes.html')) {
+                        backText = 'Back to All Archetypes';
+                    } else if (referrer.includes('index.html') || referrer.endsWith('/')) {
+                        backText = 'Back to Your Results';
+                    }
+
+                    backBtnText.textContent = backText;
+                    backNavigation.classList.remove('hidden');
+
+                    // Handle back button click
+                    backBtn.addEventListener('click', () => {
+                        window.history.back();
+                    });
+                }
+            }
+        })();
+
+        // Highlight target section when navigating via anchor link
+        if (window.location.hash) {
+            window.addEventListener('load', () => {
+                const target = document.querySelector(window.location.hash);
+                if (target && target.classList.contains('theory-dimension-section')) {
+                    target.classList.add('highlight-target');
+                    setTimeout(() => {
+                        target.classList.remove('highlight-target');
+                    }, 2000);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

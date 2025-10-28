@@ -628,7 +628,17 @@ function renderDimensionCards(dimensions, rawScores, normalizedScores) {
                 </div>
                 <p class="dimension-interpretation">${interpretation}</p>
                 <p class="dimension-desc">${dimension.description}</p>
-                <p class="dimension-theory"><strong>Theoretical Basis:</strong> ${dimension.theoreticalBasis}</p>
+                <p class="dimension-theory">
+                    <strong>Theoretical Basis:</strong>
+                    <a href="theory.html#${dimension.id}" class="theory-text-link" aria-label="Read about ${dimension.theoreticalBasis} in theoretical framework">
+                        ${dimension.theoreticalBasis}
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </p>
+                <a href="theory.html#${dimension.id}" class="dimension-link" aria-label="Learn more about the ${dimension.name} theoretical foundations">
+                    Learn more about ${dimension.name}
+                    <i class="ph ph-arrow-right"></i>
+                </a>
             </div>
         `;
     });

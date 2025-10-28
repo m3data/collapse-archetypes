@@ -361,7 +361,7 @@ The archetypes are conceptual frameworks for thinking about responses to uncerta
 
 ## License
 
-Created for educational and self-reflection purposes. View source, learn, adapt as Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
+Created for educational and self-reflection purposes. View source, learn, and adapt under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0). See `LICENSE` for complete terms.
 
 ---
 

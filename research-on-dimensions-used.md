@@ -1,6 +1,6 @@
 ## Updated Research on Theoretical Foundations of the Five Dimensions
 
-Recent research in 2024–2025 has produced a range of studies updating, integrating, or refining the frameworks underlying the five dimensions you describe: affective, cognitive, relational, temporal, and behavioral. Below is a synthesis of the most current findings relevant to each theoretical foundation.
+Recent research in 2024–2025 has produced a range of studies updating, integrating, or refining the frameworks underlying the five dimensions used in collapse archetypes: affective, cognitive, relational, temporal, and behavioral. Below is a synthesis of the most current findings relevant to each theoretical foundation.
 
 ### Affective Dimension — Terror Management and Positive Psychology
 

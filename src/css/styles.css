@@ -1917,14 +1917,14 @@ strong {
 
 @media (max-width: 768px) {
     .archetypes-page {
-        padding-left: var(--space-sm);
-        padding-right: var(--space-sm);
+        padding: var(--space-sm);
     }
 
+    /* Remove redundant padding - container already has padding */
     .page-header,
     .archetypes-container {
-        padding-left: var(--space-sm);
-        padding-right: var(--space-sm);
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .page-title {
@@ -1933,6 +1933,25 @@ strong {
 
     .archetype-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* Reduce card padding */
+    .archetype-card-link {
+        padding: var(--space-md);
+    }
+
+    /* Intro section */
+    .archetype-intro {
+        padding: var(--space-md);
+    }
+
+    .disclaimer-box {
+        padding: var(--space-md);
+    }
+
+    .framework-section {
+        padding: var(--space-md);
     }
 
     .dimension-overview-grid {
@@ -1959,27 +1978,168 @@ strong {
     .nav-text {
         align-items: flex-start !important;
     }
+
+    /* Touch targets */
+    .breadcrumb {
+        padding: var(--space-sm) 0;
+    }
+
+    .breadcrumb-link {
+        padding: var(--space-xs);
+        margin: calc(-1 * var(--space-xs));
+        min-height: 44px;
+    }
+
+    /* Enhanced focus states */
+    a:focus-visible,
+    button:focus-visible {
+        outline-width: 3px;
+        outline-offset: 4px;
+    }
+
+    /* Archetype detail page */
+    .archetype-detail-page {
+        padding: var(--space-sm);
+    }
+
+    .archetype-section {
+        padding: var(--space-md);
+    }
+
+    .dimension-detail-card {
+        padding: var(--space-md);
+    }
+
+    .archetype-header-content {
+        padding: var(--space-md);
+    }
 }
 
 @media (max-width: 480px) {
+    /* Aggressive padding reduction for extra-small screens */
+    .archetypes-page {
+        padding: var(--space-xs);
+    }
+
+    /* Archetype cards - aggressive reduction */
+    .archetype-card-link {
+        padding: var(--space-sm);
+    }
+
+    .archetype-card-name {
+        font-size: var(--text-xl);
+    }
+
+    .archetype-card-description {
+        font-size: var(--text-xs);
+    }
+
+    /* Grid gap reduction */
+    .archetype-grid {
+        gap: var(--space-md);
+    }
+
+    /* Intro sections */
+    .archetype-intro {
+        padding: var(--space-sm);
+    }
+
+    .disclaimer-box {
+        padding: var(--space-sm);
+    }
+
+    .framework-section {
+        padding: var(--space-sm);
+    }
+
+    /* Page header */
+    .page-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    .page-title {
+        font-size: var(--text-2xl);
+        line-height: 1.2;
+    }
+
+    .page-subtitle {
+        font-size: var(--text-sm);
+    }
+
+    /* Trait displays */
     .archetype-traits-mini {
         flex-direction: column;
+        gap: var(--space-xs);
     }
 
     .trait-badge {
         display: block;
         text-align: center;
+        font-size: var(--text-xs);
+        padding: 0.25rem 0.5rem;
     }
 
     .trait-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--space-sm);
+        gap: var(--space-xs);
     }
 
     .trait-value {
         align-self: stretch;
         text-align: center;
+    }
+
+    /* Dimension overview cards */
+    .dimension-overview-card {
+        padding: var(--space-sm);
+    }
+
+    /* Archetype detail page - aggressive reduction */
+    .archetype-detail-page {
+        padding: var(--space-xs);
+    }
+
+    .archetype-section {
+        padding: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .dimension-detail-card {
+        padding: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .archetype-header-content {
+        padding: var(--space-sm);
+    }
+
+    .archetype-title {
+        font-size: var(--text-2xl);
+    }
+
+    /* Radar chart container */
+    .radar-chart-container {
+        padding: var(--space-sm);
+    }
+
+    /* Theory section */
+    .theory-section {
+        padding: var(--space-sm);
+    }
+
+    .theory-list {
+        padding-left: var(--space-md);
+    }
+
+    /* Navigation buttons */
+    .nav-btn {
+        padding: var(--space-sm);
+        font-size: var(--text-sm);
+    }
+
+    .cta-box-large {
+        padding: var(--space-md);
     }
 }
 
@@ -2292,9 +2452,10 @@ strong {
         padding: var(--space-sm);
     }
 
+    /* Remove redundant padding - container already has padding */
     .theory-page {
-        padding-left: var(--space-sm);
-        padding-right: var(--space-sm);
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .theory-title {
@@ -2303,10 +2464,35 @@ strong {
 
     .theory-dimension-section {
         padding: var(--space-lg);
+        margin-bottom: var(--space-xl);
+    }
+
+    .theory-intro {
+        padding: var(--space-lg);
     }
 
     .theory-synthesis {
         padding: var(--space-lg);
+    }
+
+    .theory-content {
+        padding: var(--space-md);
+    }
+
+    .theory-research {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .references-summary {
+        padding: var(--space-sm) var(--space-lg);
+    }
+
+    .references-content {
+        padding: var(--space-lg);
+    }
+
+    .theory-header {
+        margin-bottom: var(--space-xl);
     }
 
     .theory-actions {
@@ -2315,6 +2501,49 @@ strong {
 
     .theory-actions .btn {
         width: 100%;
+    }
+
+    /* Breadcrumb - increase touch target */
+    .breadcrumb {
+        padding: var(--space-sm) 0;
+    }
+
+    .breadcrumb-link {
+        padding: var(--space-xs);
+        margin: calc(-1 * var(--space-xs));
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Back navigation - optimize for mobile */
+    .back-navigation {
+        padding: var(--space-xs) var(--space-xs);
+        margin-left: calc(-1 * var(--space-xs));
+        margin-right: calc(-1 * var(--space-xs));
+        margin-bottom: var(--space-sm);
+    }
+
+    .back-btn {
+        padding: var(--space-sm) var(--space-md);
+        min-height: 44px;
+    }
+
+    /* Larger focus outlines for touch navigation */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+        outline-width: 3px;
+        outline-offset: 4px;
+    }
+
+    /* Collapsible references - larger caret */
+    .references-summary .summary-icon {
+        font-size: var(--text-lg);
+    }
+
+    .references-summary {
+        background: linear-gradient(90deg, var(--color-surface) 0%, var(--color-parchment) 100%);
     }
 }
 
@@ -2537,6 +2766,113 @@ strong {
 @media (prefers-reduced-motion: reduce) {
     .back-navigation {
         animation: none;
+    }
+}
+
+/* Extra-small mobile optimizations (320px - 480px) */
+@media (max-width: 480px) {
+    /* Page container - minimal outer padding */
+    .theory-detail-page {
+        padding: var(--space-xs);
+    }
+
+    /* Content wrapper - already has no padding from 768px query */
+
+    /* Dimension sections - aggressive reduction */
+    .theory-dimension-section {
+        padding: var(--space-md);
+        border-radius: var(--border-radius);
+        margin-bottom: var(--space-lg);
+    }
+
+    /* Intro box - reduce padding */
+    .theory-intro {
+        padding: var(--space-md);
+        margin-bottom: var(--space-xl);
+    }
+
+    /* Synthesis section - reduce padding */
+    .theory-synthesis {
+        padding: var(--space-md);
+        margin-bottom: var(--space-xl);
+    }
+
+    /* Theory content - reduce padding */
+    .theory-content {
+        padding: var(--space-sm);
+    }
+
+    /* Research boxes - minimal padding */
+    .theory-research {
+        padding: var(--space-sm);
+        margin-top: var(--space-md);
+        border-left-width: 4px;
+    }
+
+    .theory-research li:before {
+        font-size: 1.1em;
+    }
+
+    /* References sections */
+    .references-summary {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .references-content {
+        padding: var(--space-md);
+    }
+
+    .references-content ol {
+        padding-left: var(--space-md);
+    }
+
+    /* Typography adjustments */
+    .theory-title {
+        font-size: var(--text-3xl);
+        line-height: 1.15;
+    }
+
+    .theory-dimension-section h2 {
+        font-size: var(--text-xl);
+        line-height: 1.3;
+    }
+
+    .theory-foundation {
+        font-size: var(--text-sm);
+    }
+
+    .theory-research h4 {
+        font-size: var(--text-xs);
+    }
+
+    .theory-content p {
+        font-size: var(--text-base);
+        line-height: 1.7;
+    }
+
+    /* Dimension icons - reduce size */
+    .dimension-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .dimension-icon i {
+        font-size: var(--text-lg);
+    }
+
+    /* Back navigation - full bleed */
+    .back-navigation {
+        border-radius: 0;
+        padding: var(--space-xs);
+    }
+}
+
+/* Line length optimization for wider mobile (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .theory-content p,
+    .theory-intro p,
+    .theory-synthesis p {
+        max-width: 65ch;
     }
 }
 

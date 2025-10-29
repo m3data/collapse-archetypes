@@ -17,6 +17,7 @@
     font-display: swap;
 }
 
+
 @font-face {
     font-family: 'Crimson Pro';
     src: url('../fonts/crimson-pro-600.woff2') format('woff2');
@@ -863,6 +864,44 @@ strong {
     margin-top: var(--space-lg);
     padding-top: var(--space-lg);
     border-top: 1px solid var(--color-border);
+}
+
+.shared-result-banner {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+    padding: var(--space-md) var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border: 1px solid rgba(62, 50, 37, 0.2);
+    border-radius: var(--border-radius-lg);
+    background: rgba(62, 50, 37, 0.08);
+    color: var(--color-earth-dark);
+}
+
+.shared-result-banner i {
+    font-size: var(--text-xl);
+    line-height: 1;
+    margin-top: 0.15rem;
+}
+
+.shared-result-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.shared-result-title {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.shared-result-meta {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-earth-dark);
 }
 
 .results-actions {
@@ -2185,24 +2224,63 @@ strong {
 
 /* === Print Styles === */
 @media print {
-    .quiz-container {
-        display: block;
+    @page {
+        margin: 1in;
     }
 
-    .screen {
-        display: block !important;
-        opacity: 1 !important;
-        page-break-after: always;
+    *, *::before, *::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    header,
+    .site-footer,
+    .notification,
+    .cta-section,
+    .breadcrumb,
+    .archetype-navigation {
+        display: none !important;
+    }
+
+    #welcomeScreen,
+    #quizScreen,
+    .results-actions,
+    .theory-details {
+        display: none !important;
     }
 
     .btn {
-        display: none;
+        display: none !important;
     }
 
-    .breadcrumb,
-    .archetype-navigation,
-    .cta-section {
-        display: none;
+    .quiz-container {
+        padding: 0;
+    }
+
+    #resultsScreen {
+        display: block !important;
+        opacity: 1 !important;
+        animation: none !important;
+    }
+
+    #resultsScreen .content-wrapper {
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+    }
+
+    .dimensional-analysis {
+        page-break-inside: avoid;
+    }
+
+    .shared-result-banner {
+        background: transparent;
+        border-color: rgba(0, 0, 0, 0.1);
     }
 
     .archetype-card {

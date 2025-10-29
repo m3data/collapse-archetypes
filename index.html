@@ -86,6 +86,16 @@
         <!-- Results Screen -->
         <section class="screen results-screen" id="resultsScreen" aria-labelledby="archetypeName">
             <div class="content-wrapper">
+                <div class="shared-result-banner" id="sharedResultBanner" hidden>
+                    <i class="ph ph-share-network" aria-hidden="true"></i>
+                    <div class="shared-result-text">
+                        <p class="shared-result-title">Shared Result</p>
+                        <p class="shared-result-meta" id="sharedResultMeta">
+                            <!-- Populated when viewing a shared result -->
+                        </p>
+                    </div>
+                </div>
+
                 <div class="results-reveal">
                     <p class="results-label">Your archetype is</p>
 
@@ -269,6 +279,13 @@
                             <i class="ph ph-book-open"></i>
                             Explore All Archetypes
                         </a>
+                        <button
+                            class="btn btn-outline"
+                            id="downloadPdfBtn"
+                            aria-label="Open print dialog to save your archetype results as a PDF">
+                            <i class="ph ph-download-simple"></i>
+                            Save as PDF
+                        </button>
                         <button
                             class="btn btn-outline share-btn"
                             id="shareBtn"

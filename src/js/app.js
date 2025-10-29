@@ -13,7 +13,29 @@
 // IMPORTS
 // ============================================
 
-import { scoreQuiz, ARCHETYPE_TRAIT_PROFILES } from './scoring-engine.js';
+import { scoreQuiz } from './scoring-engine.js';
+
+const RESULT_HASH_PREFIX = '#result=';
+const CONFIDENCE_LEVEL_CODES = {
+    strong: 's',
+    moderate: 'm',
+    low: 'l'
+};
+
+const CONFIDENCE_CODE_LABELS = {
+    s: 'strong',
+    m: 'moderate',
+    l: 'low'
+};
+
+const TRAIT_COMPRESSION_TABLE = [
+    { id: 'awareness', key: 'aw', min: 0, max: 1 },
+    { id: 'affect', key: 'af', min: -1, max: 1 },
+    { id: 'agency', key: 'ag', min: 0, max: 1 },
+    { id: 'time', key: 'ti', min: -1, max: 1 },
+    { id: 'relationality', key: 're', min: 0, max: 1 },
+    { id: 'posture', key: 'po', min: 0, max: 1 },
+];
 
 // ============================================
 // STATE MANAGEMENT
@@ -32,6 +54,10 @@ const QuizState = {
     },
     quizData: null,
     isLoading: false,
+    scoringResult: null,
+    lastResultSnapshot: null,
+    lastArchetypeId: null,
+    sharedResultMode: false,
 };
 
 // ============================================
@@ -61,7 +87,83 @@ const DOM = {
     archetypeTraits: null,
     retakeBtn: null,
     shareBtn: null,
+    downloadPdfBtn: null,
+    sharedResultBanner: null,
+    sharedResultMeta: null,
 };
+
+function clampNumber(value, min, max) {
+    if (typeof value !== 'number' || Number.isNaN(value)) {
+        return min;
+    }
+    return Math.min(max, Math.max(min, value));
+}
+
+function encodeConfidence(confidence) {
+    if (!confidence) return null;
+    const score = typeof confidence.score === 'number'
+        ? clampNumber(Math.round(confidence.score * 100), 0, 100)
+        : null;
+    const levelCode = confidence.level
+        ? (CONFIDENCE_LEVEL_CODES[confidence.level.toLowerCase()] || '')
+        : '';
+    if (score === null && !levelCode) {
+        return null;
+    }
+    return [score, levelCode];
+}
+
+function decodeConfidence(value) {
+    if (!Array.isArray(value)) return null;
+    const [scoreInt, code] = value;
+    const score = typeof scoreInt === 'number'
+        ? clampNumber(scoreInt, 0, 100) / 100
+        : null;
+    const level = code
+        ? (CONFIDENCE_CODE_LABELS[code.toLowerCase()] || null)
+        : null;
+    if (score === null && !level) {
+        return null;
+    }
+    return { score, level };
+}
+
+function encodeTraitProfile(traits = null) {
+    if (!traits) return null;
+    const encoded = {};
+    TRAIT_COMPRESSION_TABLE.forEach(({ id, key, min, max }) => {
+        const value = traits[id];
+        if (typeof value === 'number' && Number.isFinite(value)) {
+            const normalized = clampNumber((value - min) / (max - min), 0, 1);
+            encoded[key] = Math.round(normalized * 100);
+        }
+    });
+    return Object.keys(encoded).length ? encoded : null;
+}
+
+function decodeTraitProfile(encoded = null) {
+    if (!encoded) return null;
+    const traits = {};
+    TRAIT_COMPRESSION_TABLE.forEach(({ id, key, min, max }) => {
+        if (Object.prototype.hasOwnProperty.call(encoded, key)) {
+            const normalized = clampNumber(encoded[key], 0, 100) / 100;
+            const value = min + normalized * (max - min);
+            traits[id] = Number(value.toFixed(3));
+        }
+    });
+    return Object.keys(traits).length ? traits : null;
+}
+
+function convertDimensionsToRaw(dimensions = {}) {
+    const raw = {};
+    Object.entries(dimensions).forEach(([id, normalized]) => {
+        if (typeof normalized === 'number' && Number.isFinite(normalized)) {
+            const clamped = clampNumber(normalized, 0, 100);
+            raw[id] = Math.round((clamped / 100) * 120 - 60);
+        }
+    });
+    return raw;
+}
 
 // ============================================
 // INITIALIZATION
@@ -79,6 +181,10 @@ async function init() {
 
     // Initialize keyboard navigation
     initKeyboardNavigation();
+
+    // Handle shared results if the page was opened with a hash payload
+    handleSharedResultFromHash();
+    window.addEventListener('hashchange', handleSharedResultFromHash);
 
     console.log('Quiz initialized successfully');
 }
@@ -106,6 +212,9 @@ function cacheDOMElements() {
     DOM.archetypeTraits = document.getElementById('archetypeTraits');
     DOM.retakeBtn = document.getElementById('retakeBtn');
     DOM.shareBtn = document.getElementById('shareBtn');
+    DOM.downloadPdfBtn = document.getElementById('downloadPdfBtn');
+    DOM.sharedResultBanner = document.getElementById('sharedResultBanner');
+    DOM.sharedResultMeta = document.getElementById('sharedResultMeta');
 }
 
 async function loadQuizData() {
@@ -127,11 +236,20 @@ async function loadQuizData() {
 
 function initEventListeners() {
     // Welcome screen
-    DOM.startBtn.addEventListener('click', startQuiz);
+    if (DOM.startBtn) {
+        DOM.startBtn.addEventListener('click', startQuiz);
+    }
 
     // Results screen
-    DOM.retakeBtn.addEventListener('click', retakeQuiz);
-    DOM.shareBtn.addEventListener('click', shareResult);
+    if (DOM.retakeBtn) {
+        DOM.retakeBtn.addEventListener('click', retakeQuiz);
+    }
+    if (DOM.shareBtn) {
+        DOM.shareBtn.addEventListener('click', shareResult);
+    }
+    if (DOM.downloadPdfBtn) {
+        DOM.downloadPdfBtn.addEventListener('click', downloadResultAsPdf);
+    }
 }
 
 function initKeyboardNavigation() {
@@ -197,9 +315,14 @@ function startQuiz() {
         return;
     }
 
+    clearSharedResultContext();
+
     // Reset state
     QuizState.currentQuestionIndex = 0;
     QuizState.responses = [];
+    QuizState.scoringResult = null;
+    QuizState.sharedResultMode = false;
+    QuizState.lastArchetypeId = null;
 
     // Reset scores
     Object.keys(QuizState.scores).forEach(key => {
@@ -326,8 +449,15 @@ function showResults() {
         return;
     }
 
+    QuizState.sharedResultMode = false;
+
     // Display results
     displayArchetypeResult(dominantArchetype);
+
+    // Persist snapshot for sharing/exporting and clear any hash-based context
+    persistResultSnapshot(dominantArchetype);
+    history.replaceState(null, '', window.location.pathname);
+    updateSharedResultBanner(null);
 
     // Show results screen
     showScreen(DOM.resultsScreen);
@@ -377,6 +507,8 @@ function calculateDominantArchetype() {
 }
 
 function displayArchetypeResult(archetype) {
+    QuizState.lastArchetypeId = archetype.id;
+
     // Name
     DOM.archetypeName.textContent = archetype.name;
 
@@ -433,18 +565,171 @@ function displayTraits(traits) {
     DOM.archetypeTraits.innerHTML = html;
 }
 
+function normalizeDimensionalScores(rawScores = {}) {
+    const maxPossible = 60; // Maximum positive displacement per dimension
+    const normalized = {};
+    const dimensionIds = (QuizState.quizData?.metadata?.dimensions || [])
+        .map(d => d.id);
+    const fallbackIds = Object.keys(QuizState.dimensionalScores);
+    const idsToUse = dimensionIds.length ? dimensionIds : fallbackIds;
+
+    idsToUse.forEach(dim => {
+        const score = rawScores[dim] ?? 0;
+        normalized[dim] = ((score + maxPossible) / (maxPossible * 2)) * 100;
+    });
+
+    return normalized;
+}
+
+function buildSnapshotData(archetype, scoringResult, dimensionalScores, options = {}) {
+    const generatedAt = options.generatedAt ?? Date.now();
+    const sharedSource = options.sharedSource ?? null;
+
+    const dimensionIds = (QuizState.quizData?.metadata?.dimensions || []).map(d => d.id);
+    const normalizedDimensions = normalizeDimensionalScores(dimensionalScores || {});
+    const dimensionKeys = dimensionIds.length ? dimensionIds : Object.keys(normalizedDimensions);
+    const dimensionInts = {};
+    dimensionKeys.forEach(id => {
+        const value = normalizedDimensions[id] ?? 50;
+        dimensionInts[id] = clampNumber(Math.round(value), 0, 100);
+    });
+
+    const normalizedScores = scoringResult?.normalizedScores || {};
+    const topMatches = Object.entries(normalizedScores)
+        .sort((a, b) => (b[1] || 0) - (a[1] || 0))
+        .slice(0, 3)
+        .map(([id, score]) => [id, clampNumber(Math.round((score || 0) * 100), 0, 100)]);
+
+    if (!topMatches.length && archetype?.id) {
+        topMatches.push([archetype.id, 100]);
+    }
+
+    const confidence = scoringResult?.confidence
+        ? {
+            score: typeof scoringResult.confidence.score === 'number'
+                ? clampNumber(scoringResult.confidence.score, 0, 1)
+                : null,
+            level: scoringResult.confidence.level || null
+        }
+        : null;
+
+    const compactConfidence = encodeConfidence(confidence);
+    const traitProfile = scoringResult?.userTraitProfile || null;
+    const compactTraits = encodeTraitProfile(traitProfile);
+
+    const questionsAnswered = typeof scoringResult?.questionsAnswered === 'number'
+        ? scoringResult.questionsAnswered
+        : null;
+    const totalQuestions = typeof scoringResult?.totalQuestions === 'number'
+        ? scoringResult.totalQuestions
+        : null;
+
+    const compact = {
+        v: 2,
+        t: generatedAt,
+        p: archetype?.id || null,
+        c: compactConfidence,
+        m: topMatches,
+        d: dimensionInts,
+        u: compactTraits,
+        q: [questionsAnswered, totalQuestions]
+    };
+
+    if (sharedSource) {
+        compact.s = sharedSource;
+    }
+
+    const internal = {
+        version: 2,
+        generatedAt,
+        primaryId: archetype?.id || null,
+        confidence,
+        topMatches: topMatches.map(([id, score]) => ({ id, score })),
+        dimensions: dimensionInts,
+        traitProfile: traitProfile || (compactTraits ? decodeTraitProfile(compactTraits) : null),
+        questionsAnswered,
+        totalQuestions,
+        sharedSource,
+        _compact: compact
+    };
+
+    return { internal, compact };
+}
+
+function expandSnapshot(rawSnapshot, options = {}) {
+    if (!rawSnapshot) return null;
+
+    if (rawSnapshot.v === 2) {
+        const confidence = rawSnapshot.c ? decodeConfidence(rawSnapshot.c) : null;
+        const traitProfile = rawSnapshot.u ? decodeTraitProfile(rawSnapshot.u) : null;
+        const dimensions = {};
+        Object.entries(rawSnapshot.d || {}).forEach(([id, value]) => {
+            dimensions[id] = clampNumber(Math.round(value), 0, 100);
+        });
+
+        const topMatches = Array.isArray(rawSnapshot.m)
+            ? rawSnapshot.m.map(item => {
+                if (Array.isArray(item)) {
+                    return { id: item[0], score: clampNumber(item[1], 0, 100) };
+                }
+                return {
+                    id: item.id,
+                    score: clampNumber(item.score, 0, 100)
+                };
+            })
+            : [];
+
+        const [answered, total] = Array.isArray(rawSnapshot.q) ? rawSnapshot.q : [null, null];
+
+        return {
+            version: 2,
+            generatedAt: rawSnapshot.t ?? options.generatedAt ?? Date.now(),
+            primaryId: rawSnapshot.p || null,
+            confidence,
+            topMatches,
+            dimensions,
+            traitProfile,
+            questionsAnswered: typeof answered === 'number' ? answered : null,
+            totalQuestions: typeof total === 'number' ? total : null,
+            sharedSource: rawSnapshot.s ?? options.sharedSource ?? null,
+            _compact: rawSnapshot
+        };
+    }
+
+    if (rawSnapshot.version === 1 || rawSnapshot.primary) {
+        const archetypeId = rawSnapshot.primary?.id || rawSnapshot.primary;
+        const archetype = getArchetypeById(archetypeId) || { id: archetypeId };
+
+        const dimensionalScores = rawSnapshot.dimensions || convertDimensionsToRaw(rawSnapshot.normalizedDimensions || {});
+        const fauxScoringResult = {
+            confidence: rawSnapshot.confidence,
+            normalizedScores: rawSnapshot.normalizedScores || {},
+            userTraitProfile: rawSnapshot.traitProfile,
+            questionsAnswered: rawSnapshot.questionsAnswered,
+            totalQuestions: rawSnapshot.totalQuestions
+        };
+
+        const { internal } = buildSnapshotData(
+            archetype,
+            fauxScoringResult,
+            dimensionalScores,
+            {
+                generatedAt: rawSnapshot.generatedAt ?? Date.now(),
+                sharedSource: rawSnapshot.sharedSource ?? options.sharedSource
+            }
+        );
+
+        return internal;
+    }
+
+    return null;
+}
 function displayDimensionalAnalysis(archetype) {
     const dimensions = QuizState.quizData.metadata.dimensions;
     const userScores = QuizState.dimensionalScores;
 
     // Normalize scores to 0-100 scale for visualization
-    const normalizedScores = {};
-    const maxPossible = 60; // Assuming max score per dimension (20 questions × 3 max points)
-
-    Object.keys(userScores).forEach(dim => {
-        // Normalize from [-60, 60] to [0, 100]
-        normalizedScores[dim] = ((userScores[dim] + maxPossible) / (maxPossible * 2)) * 100;
-    });
+    const normalizedScores = normalizeDimensionalScores(userScores);
 
     // Render radar chart
     renderRadarChart(dimensions, normalizedScores);
@@ -678,50 +963,375 @@ function getArchetypeEmoji(archetypeId) {
 }
 
 // ============================================
-// RETAKE & SHARE
+// RESULT PERSISTENCE, EXPORT, AND SHARING
 // ============================================
 
 function retakeQuiz() {
     startQuiz();
 }
 
-async function shareResult() {
-    const archetype = calculateDominantArchetype();
+function persistResultSnapshot(archetype, overrides = {}) {
+    const scoringResult = overrides.scoringResult || QuizState.scoringResult;
+    const dimensionalScores = overrides.dimensionalScores || QuizState.dimensionalScores;
 
-    if (!archetype) return;
+    if (!archetype || !scoringResult || !dimensionalScores) {
+        return null;
+    }
 
-    const shareText = `I'm a ${archetype.name}! "${archetype.meme}" - Discover your collapse archetype.`;
-    const shareUrl = window.location.href;
+    const { internal } = buildSnapshotData(archetype, scoringResult, dimensionalScores, overrides);
+    QuizState.lastResultSnapshot = internal;
+    return internal;
+}
 
-    // Web Share API (mobile-friendly)
-    if (navigator.share) {
-        try {
-            await navigator.share({
-                title: 'My Collapse Archetype',
-                text: shareText,
-                url: shareUrl,
-            });
-        } catch (error) {
-            if (error.name !== 'AbortError') {
-                console.error('Error sharing:', error);
-                fallbackShare(shareText, shareUrl);
+function getLatestResultSnapshot() {
+    if (QuizState.lastResultSnapshot) {
+        return QuizState.lastResultSnapshot;
+    }
+
+    if (!QuizState.lastArchetypeId || !QuizState.quizData || !QuizState.scoringResult) {
+        return null;
+    }
+
+    const archetype = getArchetypeById(QuizState.lastArchetypeId);
+    if (!archetype) {
+        return null;
+    }
+
+    return persistResultSnapshot(archetype);
+}
+
+function encodeResultSnapshot(snapshot) {
+    try {
+        let payload = snapshot?._compact || null;
+
+        if (!payload && snapshot?.version === 2) {
+            payload = {
+                v: 2,
+                t: snapshot.generatedAt,
+                p: snapshot.primaryId,
+                c: encodeConfidence(snapshot.confidence),
+                m: (snapshot.topMatches || []).map(match => [match.id, clampNumber(match.score, 0, 100)]),
+                d: snapshot.dimensions || {},
+                u: encodeTraitProfile(snapshot.traitProfile),
+                q: [snapshot.questionsAnswered ?? null, snapshot.totalQuestions ?? null]
+            };
+
+            if (snapshot.sharedSource) {
+                payload.s = snapshot.sharedSource;
             }
         }
-    } else {
-        fallbackShare(shareText, shareUrl);
+
+        if (!payload && snapshot?.primary?.id) {
+            // Legacy snapshot structure.
+            const archetype = getArchetypeById(snapshot.primary.id) || { id: snapshot.primary.id };
+            const { compact } = buildSnapshotData(
+                archetype,
+                {
+                    confidence: snapshot.confidence,
+                    normalizedScores: Object.fromEntries((snapshot.topMatches || []).map(match => [match.id, (match.score || 0) / 100])),
+                    userTraitProfile: snapshot.traitProfile,
+                    questionsAnswered: snapshot.questionsAnswered,
+                    totalQuestions: snapshot.totalQuestions
+                },
+                snapshot.dimensions || {},
+                { generatedAt: snapshot.generatedAt }
+            );
+            payload = compact;
+        }
+
+        if (!payload) {
+            return null;
+        }
+
+        const json = JSON.stringify(payload);
+        const binary = String.fromCharCode(...new TextEncoder().encode(json));
+        const base64 = btoa(binary);
+        return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/u, '');
+    } catch (error) {
+        console.error('Unable to encode snapshot:', error);
+        return null;
     }
 }
 
+function decodeResultSnapshot(encoded, options = {}) {
+    try {
+        const padded = encoded.replace(/-/g, '+').replace(/_/g, '/');
+        const padLength = (4 - (padded.length % 4)) % 4;
+        const base = padded + '='.repeat(padLength);
+        const binary = atob(base);
+        const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
+        const json = new TextDecoder().decode(bytes);
+        const rawSnapshot = JSON.parse(json);
+        return expandSnapshot(rawSnapshot, options);
+    } catch (error) {
+        console.error('Unable to decode snapshot:', error);
+        return null;
+    }
+}
+
+function getResultShareUrl(snapshot) {
+    const encoded = encodeResultSnapshot(snapshot);
+    if (!encoded) {
+        return null;
+    }
+
+    const { origin, pathname, search } = window.location;
+    return `${origin}${pathname}${search}${RESULT_HASH_PREFIX}${encoded}`;
+}
+
+async function shareResult() {
+    const snapshot = getLatestResultSnapshot();
+    if (!snapshot) {
+        showNotification('Complete the quiz to share your archetype.');
+        return;
+    }
+
+    const shareUrl = getResultShareUrl(snapshot);
+    if (!shareUrl) {
+        showNotification('Unable to prepare a shareable link right now.');
+        return;
+    }
+
+    const shareText = buildShareText(snapshot);
+    const shareData = {
+        title: 'My Collapse Archetype',
+        text: shareText,
+        url: shareUrl,
+    };
+
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+            return;
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                return;
+            }
+            console.error('Error sharing:', error);
+        }
+    }
+
+    fallbackShare(shareText, shareUrl);
+}
+
+function buildShareText(snapshot) {
+    const archetype = getArchetypeById(snapshot.primaryId);
+    const archetypeName = archetype?.name || 'My Archetype';
+    const archetypeMeme = archetype?.meme || '';
+
+    const lines = [
+        `My Collapse Archetype: ${archetypeName}`,
+    ];
+
+    if (archetypeMeme) {
+        lines.push(`“${archetypeMeme}”`);
+    }
+
+    const dimensionSummary = formatDimensionSummary(snapshot.dimensions);
+    if (dimensionSummary) {
+        lines.push(dimensionSummary);
+    }
+
+    const confidenceSummary = formatConfidence(snapshot.confidence);
+    if (confidenceSummary) {
+        lines.push(confidenceSummary);
+    }
+
+    if (snapshot.topMatches && snapshot.topMatches.length > 1) {
+        const secondary = snapshot.topMatches.slice(1)
+            .map(match => {
+                const matchArchetype = getArchetypeById(match.id);
+                const name = matchArchetype?.name || match.id;
+                const score = clampNumber(match.score, 0, 100);
+                return `${name}: ${score}%`;
+            })
+            .join(' • ');
+
+        if (secondary) {
+            lines.push(`Other alignments → ${secondary}`);
+        }
+    }
+
+    return lines.join('\n');
+}
+
+function formatDimensionSummary(normalizedDimensions = {}) {
+    const dimensions = QuizState.quizData?.metadata?.dimensions || [];
+    if (!dimensions.length) {
+        return '';
+    }
+
+    const parts = dimensions.map(dimension => {
+        const raw = normalizedDimensions[dimension.id];
+        const score = Math.round(clampNumber(typeof raw === 'number' ? raw : 50, 0, 100));
+        const name = dimension.name.replace(/ Dimension$/u, '');
+        return `${name} ${score}`;
+    });
+
+    return `Key dimensions → ${parts.join(' • ')}`;
+}
+
+function formatConfidence(confidence) {
+    if (!confidence || typeof confidence.score !== 'number') {
+        return '';
+    }
+
+    const percent = Math.round(clampNumber(confidence.score, 0, 1) * 100);
+    const level = confidence.level ? confidence.level.toLowerCase() : null;
+    return `Confidence: ${percent}%${level ? ` (${level})` : ''}`;
+}
+
 function fallbackShare(text, url) {
-    // Copy to clipboard
     const fullText = `${text}\n${url}`;
 
+    if (!navigator.clipboard) {
+        showNotification(`Copy this link to share your result:\n${url}`);
+        return;
+    }
+
     navigator.clipboard.writeText(fullText).then(() => {
-        showNotification('Link copied to clipboard!');
+        showNotification('Result link copied to clipboard!');
     }).catch(err => {
         console.error('Failed to copy:', err);
-        showNotification('Unable to share. Try copying the URL manually.');
+        showNotification(`Unable to access the clipboard. Copy this link:\n${url}`);
     });
+}
+
+function downloadResultAsPdf() {
+    const snapshot = getLatestResultSnapshot();
+    if (!snapshot) {
+        showNotification('View your results before downloading a PDF.');
+        return;
+    }
+
+    if (!DOM.resultsScreen) {
+        showNotification('Unable to find the results view for export.');
+        return;
+    }
+
+    const ensureResultsVisible = !DOM.resultsScreen.classList.contains('active');
+    if (ensureResultsVisible) {
+        showScreen(DOM.resultsScreen);
+        requestAnimationFrame(() => window.print());
+    } else {
+        window.print();
+    }
+}
+
+function handleSharedResultFromHash() {
+    const hash = window.location.hash || '';
+    if (!hash.startsWith(RESULT_HASH_PREFIX)) {
+        if (QuizState.sharedResultMode) {
+            clearSharedResultContext({ preserveHash: true, preserveSnapshot: true });
+        }
+        return;
+    }
+
+    const encoded = hash.slice(RESULT_HASH_PREFIX.length);
+    if (!encoded) {
+        return;
+    }
+
+    const snapshot = decodeResultSnapshot(encoded, { sharedSource: 'Shared link import' });
+    if (!snapshot || !snapshot.primaryId) {
+        showNotification('Unable to load the shared result.');
+        clearSharedResultContext();
+        return;
+    }
+
+    applySharedResult(snapshot);
+}
+
+function applySharedResult(snapshot) {
+    if (!QuizState.quizData) {
+        return;
+    }
+
+    const archetype = getArchetypeById(snapshot.primaryId);
+    if (!archetype) {
+        showNotification('This shared result references an unknown archetype.');
+        return;
+    }
+
+    const dimensionIds = (QuizState.quizData.metadata?.dimensions || []).map(d => d.id);
+    const rawDimensions = {};
+    const sourceDimensions = snapshot.dimensions || {};
+
+    (dimensionIds.length ? dimensionIds : Object.keys(sourceDimensions)).forEach(id => {
+        const normalized = sourceDimensions[id];
+        if (typeof normalized === 'number') {
+            rawDimensions[id] = Math.round((clampNumber(normalized, 0, 100) / 100) * 120 - 60);
+        } else {
+            rawDimensions[id] = 0;
+        }
+    });
+
+    QuizState.dimensionalScores = rawDimensions;
+
+    const snapshotWithSource = {
+        ...snapshot,
+        sharedSource: snapshot.sharedSource || 'Shared link import'
+    };
+
+    QuizState.lastResultSnapshot = snapshotWithSource;
+    QuizState.lastArchetypeId = snapshot.primaryId;
+    QuizState.sharedResultMode = true;
+    QuizState.scoringResult = null;
+
+    displayArchetypeResult(archetype);
+    updateSharedResultBanner(snapshotWithSource);
+    showScreen(DOM.resultsScreen);
+}
+
+function clearSharedResultContext({ preserveHash = false, preserveSnapshot = false } = {}) {
+    if (!preserveSnapshot) {
+        QuizState.lastResultSnapshot = null;
+        QuizState.lastArchetypeId = null;
+    }
+
+    QuizState.sharedResultMode = false;
+    if (DOM.sharedResultBanner) {
+        DOM.sharedResultBanner.setAttribute('hidden', '');
+    }
+    if (DOM.sharedResultMeta) {
+        DOM.sharedResultMeta.textContent = '';
+    }
+
+    if (!preserveHash) {
+        const { pathname, search } = window.location;
+        history.replaceState(null, '', `${pathname}${search}`);
+    }
+}
+
+function updateSharedResultBanner(snapshot) {
+    if (!DOM.sharedResultBanner) {
+        return;
+    }
+
+    if (!snapshot) {
+        DOM.sharedResultBanner.setAttribute('hidden', '');
+        if (DOM.sharedResultMeta) {
+            DOM.sharedResultMeta.textContent = '';
+        }
+        return;
+    }
+
+    DOM.sharedResultBanner.removeAttribute('hidden');
+
+    if (DOM.sharedResultMeta) {
+        const date = snapshot.generatedAt ? new Date(snapshot.generatedAt) : null;
+        const formatted = date
+            ? date.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
+            : 'an earlier session';
+        const sourceText = snapshot.sharedSource && snapshot.sharedSource !== 'Shared link import'
+            ? ` Shared via ${snapshot.sharedSource}. `
+            : ' ';
+        DOM.sharedResultMeta.textContent = `This read-only profile was shared with you. Generated on ${formatted}.${sourceText}Data stays local unless you export or reshare it.`;
+    }
+}
+
+function getArchetypeById(archetypeId) {
+    return QuizState.quizData?.archetypes?.find(archetype => archetype.id === archetypeId) || null;
 }
 
 // ============================================

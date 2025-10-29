@@ -1250,37 +1250,64 @@ strong {
     margin-bottom: var(--space-md);
 }
 
-/* Disclaimer Box */
-.disclaimer-box {
+/* Disclaimer Accordion */
+.disclaimer-details {
     background: linear-gradient(135deg, rgba(198, 123, 92, 0.1), rgba(138, 154, 123, 0.1));
     border: 2px solid var(--color-border);
     border-radius: var(--border-radius-lg);
-    padding: var(--space-lg);
+    overflow: hidden;
     margin: var(--space-xl) 0;
 }
 
-.disclaimer-header {
+.disclaimer-summary {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    background: rgba(255, 255, 255, 0.5);
+    transition: background var(--transition-fast);
+    font-weight: 600;
+    color: var(--color-earth-dark);
 }
 
-.disclaimer-header i {
+.disclaimer-summary:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.disclaimer-summary::-webkit-details-marker {
+    display: none;
+}
+
+.disclaimer-summary i.ph-warning-circle {
     font-size: 1.5em;
     color: var(--color-accent);
 }
 
-.disclaimer-header h2 {
+.disclaimer-summary span {
     font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--color-earth-dark);
-    margin: 0;
 }
 
-.disclaimer-box p {
+.disclaimer-summary .summary-icon {
+    margin-left: auto;
+    transition: transform var(--transition-base);
+}
+
+.disclaimer-details[open] .summary-icon {
+    transform: rotate(180deg);
+}
+
+.disclaimer-content {
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.disclaimer-content p {
     color: var(--color-text-secondary);
     line-height: 1.7;
+    margin: 0;
 }
 
 /* CTA Box */
@@ -1946,7 +1973,11 @@ strong {
         padding: var(--space-md);
     }
 
-    .disclaimer-box {
+    .disclaimer-summary {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .disclaimer-content {
         padding: var(--space-md);
     }
 
@@ -2044,7 +2075,16 @@ strong {
         padding: var(--space-sm);
     }
 
-    .disclaimer-box {
+    .disclaimer-summary {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--text-base);
+    }
+
+    .disclaimer-summary i.ph-warning-circle {
+        font-size: 1.25em;
+    }
+
+    .disclaimer-content {
         padding: var(--space-sm);
     }
 
